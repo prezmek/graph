@@ -1,0 +1,526 @@
+dstipint_-1;dstport_0
+dstipint_921055388;dstport_443
+dstipint_676988105;dstport_53
+dstipint_3224678942;dstport_53
+dstipint_177049701;dstport_53
+dstipint_3224001822;dstport_53
+dstipint_2637662080;dstport_443
+dstipint_2637662084;dstport_443
+dstipint_3224851230;dstport_53
+dstipint_172951983;dstport_0
+dstipint_2899905294;dstport_443
+dstipint_3455828902;dstport_53
+dstipint_174278677;dstport_443
+dstipint_2899905294;dstport_53
+dstipint_172230484;dstport_53
+dstipint_676988105;dstport_443
+dstipint_3224678942;dstport_443
+dstipint_2461577074;dstport_80
+dstipint_172950125;dstport_5723
+dstipint_177049701;dstport_443
+dstipint_-1;srcipint_176999454
+dstipint_-1;srcipint_172234884
+dstipint_-1;srcipint_172280416
+dstipint_-1;srcipint_172280418
+dstipint_-1;srcipint_176965941
+dstipint_921055388;srcipint_2461577758
+dstipint_-1;srcipint_176965924
+dstipint_-1;srcipint_172230581
+dstipint_-1;srcipint_176949385
+dstipint_-1;srcipint_177049810
+dstipint_-1;srcipint_177025076
+dstipint_-1;srcipint_176951585
+dstipint_-1;srcipint_172236990
+dstipint_-1;srcipint_177035385
+dstipint_-1;srcipint_172237199
+dstipint_-1;srcipint_176947213
+dstipint_-1;srcipint_176947212
+dstipint_-1;srcipint_177053749
+dstipint_-1;srcipint_172232790
+dstipint_-1;srcipint_177049703
+dstipint_-1;srcport_0
+dstipint_-1;srcport_50740
+dstipint_-1;srcport_59010
+dstipint_-1;srcport_56213
+dstipint_-1;srcport_55370
+dstipint_-1;srcport_63312
+dstipint_-1;srcport_63571
+dstipint_-1;srcport_64308
+dstipint_-1;srcport_57277
+dstipint_172951983;srcport_0
+dstipint_-1;srcport_53679
+dstipint_-1;srcport_48914
+dstipint_-1;srcport_48176
+dstipint_-1;srcport_55311
+dstipint_-1;srcport_53150
+dstipint_-1;srcport_58114
+dstipint_-1;srcport_48350
+dstipint_176949369;srcport_0
+dstipint_176949370;srcport_0
+dstipint_2461573754;srcport_0
+dstport_0;srcipint_-1
+dstport_445;srcipint_173041620
+dstport_0;srcipint_176965941
+dstport_445;srcipint_2461577758
+dstport_0;srcipint_176965924
+dstport_0;srcipint_172230581
+dstport_0;srcipint_176949385
+dstport_0;srcipint_177049810
+dstport_0;srcipint_172236990
+dstport_0;srcipint_177025076
+dstport_0;srcipint_176951585
+dstport_0;srcipint_172234884
+dstport_0;srcipint_177053749
+dstport_0;srcipint_172280416
+dstport_0;srcipint_172280418
+dstport_0;srcipint_177035385
+dstport_0;srcipint_172232790
+dstport_0;srcipint_176999454
+dstport_0;srcipint_177049703
+dstport_0;srcipint_172232791
+dstport_0;srcport_50740
+dstport_0;srcport_56213
+dstport_0;srcport_59010
+dstport_0;srcport_55370
+dstport_0;srcport_63571
+dstport_0;srcport_63312
+dstport_0;srcport_64308
+dstport_53;srcport_55370
+dstport_0;srcport_57277
+dstport_53;srcport_59527
+dstport_53;srcport_80
+dstport_53;srcport_50740
+dstport_0;srcport_53679
+dstport_443;srcport_54383
+dstport_443;srcport_52739
+dstport_443;srcport_59527
+dstport_0;srcport_48176
+dstport_5060;srcport_5081
+dstport_443;srcport_56981
+dstport_53;srcport_52739
+srcipint_-1;srcport_0
+srcipint_176951317;srcport_50740
+srcipint_176951317;srcport_56213
+srcipint_176951317;srcport_55370
+srcipint_176951317;srcport_59010
+srcipint_176951317;srcport_63312
+srcipint_176951317;srcport_63571
+srcipint_176951317;srcport_64308
+srcipint_176951317;srcport_55311
+srcipint_172236990;srcport_0
+srcipint_172230581;srcport_0
+srcipint_176965924;srcport_0
+srcipint_172234884;srcport_0
+srcipint_172232790;srcport_0
+srcipint_176949385;srcport_0
+srcipint_176947211;srcport_0
+srcipint_172280418;srcport_0
+srcipint_172280416;srcport_0
+srcipint_172232791;srcport_0
+srcipint_177049725;srcport_57277
+dstipint_176949369;eventname_accept
+dstipint_-1;eventname_sshd
+dstipint_-1;eventname_system
+dstipint_921055388;eventname_accept
+dstipint_676988105;eventname_accept
+dstipint_-1;eventname_Success Audit
+dstipint_174278677;eventname_permitted
+dstipint_2887713026;eventname_accept
+dstipint_177049701;eventname_accept
+dstipint_2899905294;eventname_accept
+dstipint_3224678942;eventname_accept
+dstipint_172950125;eventname_accept
+dstipint_176949371;eventname_accept
+dstipint_3224001822;eventname_accept
+dstipint_176949370;eventname_accept
+dstipint_3221554718;eventname_accept
+dstipint_2637662080;eventname_accept
+dstipint_172230484;eventname_accept
+dstipint_2637662084;eventname_accept
+dstipint_-1;eventname_ssh
+dstport_3389;eventname_drop
+dstport_0;eventname_Success Audit
+dstport_0;eventname_sshd
+dstport_0;eventname_system
+dstport_9100;eventname_drop
+dstport_5060;eventname_drop
+dstport_5723;eventname_Deny
+dstport_8006;eventname_drop
+dstport_0;eventname_ssh
+dstport_8007;eventname_drop
+dstport_2123;eventname_ACCEPT
+dstport_8002;eventname_accept
+dstport_8443;eventname_drop
+dstport_8002;eventname_drop
+dstport_5723;eventname_drop
+dstport_2123;eventname_drop
+dstport_0;eventname_PAM fail
+dstport_8443;eventname_accept
+dstport_8006;eventname_accept
+dstport_8007;eventname_accept
+dstipint_1078476810;report_device_10.142.248.251
+dstipint_-1;report_device_146.184.164.21
+dstipint_921055388;report_device_146.184.117.12
+dstipint_-1;report_device_varhpr139
+dstipint_-1;report_device_vadzpr35
+dstipint_-1;report_device_10.140.9.6
+dstipint_-1;report_device_varhpr374
+dstipint_-1;report_device_vadzpr34
+dstipint_921055388;report_device_146.184.117.16
+dstipint_-1;report_device_varhpr279
+dstipint_-1;report_device_varhpr195
+dstipint_-1;report_device_varhpr190
+dstipint_172950125;report_device_10.99.71.7
+dstipint_-1;report_device_varhpr289
+dstipint_-1;report_device_10.140.9.10
+dstipint_-1;report_device_varhpr187
+dstipint_-1;report_device_varhpr375
+dstipint_-1;report_device_varhpr193
+dstipint_-1;report_device_varhpr189
+dstipint_-1;report_device_10.68.7.190
+dstipint_676988105;report_device_10.99.71.7
+dstipint_-1;report_device_varhpr191
+dstport_443;report_device_10.142.248.251
+dstport_0;report_device_146.184.164.21
+dstport_0;report_device_vadzpr35
+dstport_0;report_device_varhpr139
+dstport_53;report_device_10.142.248.251
+dstport_0;report_device_10.140.9.6
+dstport_0;report_device_varhpr187
+dstport_80;report_device_10.142.248.251
+dstport_0;report_device_varhpr279
+dstport_0;report_device_vadzpr34
+dstport_0;report_device_varhpr189
+dstport_5723;report_device_10.79.1.9
+dstport_0;report_device_varhpr374
+dstport_0;report_device_10.140.9.10
+dstport_0;report_device_10.68.7.190
+dstport_0;report_device_10.68.248.5
+dstport_3389;report_device_10.99.71.7
+dstport_0;report_device_10.68.7.214
+dstport_0;report_device_varhpr188
+dstport_0;report_device_varhpr289
+dstport_0;report_device_varhpr136
+dstport_0;report_device_varhpr191
+eventname_drop;srcipint_173041620
+eventname_Success Audit;srcipint_-1
+eventname_drop;srcipint_2461577758
+eventname_system;srcipint_-1
+eventname_Success Audit;srcipint_176965941
+eventname_Success Audit;srcipint_172230581
+eventname_sshd;srcipint_176947212
+eventname_Success Audit;srcipint_176965924
+eventname_sshd;srcipint_176947213
+eventname_Success Audit;srcipint_177049810
+eventname_Success Audit;srcipint_172236990
+eventname_Success Audit;srcipint_176951585
+eventname_Success Audit;srcipint_176949385
+eventname_Success Audit;srcipint_177025076
+eventname_Failure Audit;srcipint_177053749
+eventname_Success Audit;srcipint_176999454
+eventname_Success Audit;srcipint_172234884
+eventname_accept;srcipint_176947211
+eventname_Failure Audit;srcipint_177035385
+eventname_Success Audit;srcipint_172280418
+eventname_Success Audit;srcport_0
+eventname_drop;srcport_80
+eventname_system;srcport_0
+eventname_sshd;srcport_0
+eventname_Success Audit;srcport_56213
+eventname_Success Audit;srcport_50740
+eventname_Success Audit;srcport_59010
+eventname_Success Audit;srcport_55370
+eventname_Success Audit;srcport_63312
+eventname_Success Audit;srcport_63571
+eventname_drop;srcport_54383
+eventname_drop;srcport_56981
+eventname_drop;srcport_52739
+eventname_Success Audit;srcport_64308
+eventname_drop;srcport_8080
+eventname_accept;srcport_2123
+eventname_drop;srcport_55954
+eventname_drop;srcport_44103
+eventname_Success Audit;srcport_55311
+eventname_accept;srcport_8080
+report_device_146.184.164.21;srcipint_-1
+report_device_146.184.117.12;srcipint_173041620
+report_device_10.141.144.101;srcipint_177025076
+report_device_10.141.144.101;srcipint_177033291
+report_device_10.141.144.101;srcipint_176951317
+report_device_vadzpr35;srcipint_-1
+report_device_varhpr139;srcipint_-1
+report_device_varhpr374;srcipint_-1
+report_device_10.99.71.7;srcipint_176947211
+report_device_10.141.144.100;srcipint_177035399
+report_device_varhpr279;srcipint_-1
+report_device_vadzpr34;srcipint_-1
+report_device_10.141.144.100;srcipint_177035398
+report_device_10.141.144.101;srcipint_177035385
+report_device_10.140.9.6;srcipint_-1
+report_device_10.140.9.10;srcipint_-1
+report_device_10.141.144.101;srcipint_177035399
+report_device_10.141.144.101;srcipint_177053749
+report_device_varhpr192;srcipint_-1
+report_device_varhpr289;srcipint_-1
+report_device_varhpr190;srcipint_-1
+report_device_146.184.164.21;srcport_0
+report_device_10.68.0.27;srcport_80
+report_device_10.141.144.203;srcport_50740
+report_device_varhpr139;srcport_0
+report_device_varhpr374;srcport_0
+report_device_vadzpr35;srcport_0
+report_device_10.141.144.101;srcport_56213
+report_device_vadzpr34;srcport_0
+report_device_varhpr279;srcport_0
+report_device_varhpr190;srcport_0
+report_device_varhpr289;srcport_0
+report_device_10.140.9.6;srcport_0
+report_device_10.141.144.101;srcport_59010
+report_device_varhpr195;srcport_0
+report_device_10.141.144.203;srcport_55370
+report_device_varhpr192;srcport_0
+report_device_10.140.9.10;srcport_0
+report_device_varhpr193;srcport_0
+report_device_varhpr138;srcport_0
+report_device_10.141.144.101;srcport_63312
+report_device_varhpr191;srcport_0
+clientid_CAN;dstipint_921055388
+clientid_CAN;dstipint_174278677
+clientid_CAN;dstipint_172950125
+clientid_CAN;dstipint_676988105
+clientid_CAN;dstipint_3224678942
+clientid_CAN;dstipint_177049701
+clientid_CAN;dstipint_2887713026
+clientid_CAN;dstipint_2899905294
+clientid_CAN;dstipint_176949369
+clientid_CAN;dstipint_3224001822
+clientid_CAN;dstipint_176949371
+clientid_CAN;dstipint_176949370
+clientid_CAN;dstipint_2461573754
+clientid_CAN;dstipint_3224851230
+clientid_CAN;dstipint_2637662080
+clientid_CAN;dstipint_172951983
+clientid_CAN;dstipint_2886730084
+clientid_CAN;dstipint_3455828902
+clientid_CAN;dstipint_2461573667
+clientid_CAN;dstipint_2461571137
+clientid_CAN;dstport_5723
+clientid_CAN;dstport_9100
+clientid_CAN;dstport_2123
+clientid_CAN;dstport_3389
+clientid_CAN;dstport_5060
+clientid_CAN;dstport_8006
+clientid_CAN;dstport_8002
+clientid_CAN;dstport_8007
+clientid_CAN;dstport_8443
+clientid_CAN;dstport_333
+clientid_CAN;dstport_38
+clientid_CAN;dstport_8
+clientid_CAN;dstport_31
+clientid_CAN;dstport_34
+clientid_CAN;dstport_30
+clientid_CAN;dstport_98
+clientid_CAN;dstport_310
+clientid_CAN;dstport_33
+clientid_CAN;dstport_32
+clientid_CAN;dstport_12
+clientid_CAN;srcipint_173041620
+clientid_CAN;srcipint_-1
+clientid_CAN;srcipint_176965941
+clientid_CAN;srcipint_172230581
+clientid_CAN;srcipint_176965924
+clientid_CAN;srcipint_176947211
+clientid_CAN;srcipint_172236990
+clientid_CAN;srcipint_176949385
+clientid_CAN;srcipint_177053749
+clientid_CAN;srcipint_176951585
+clientid_CAN;srcipint_177025076
+clientid_CAN;srcipint_172234884
+clientid_CAN;srcipint_177049810
+clientid_CAN;srcipint_2461575976
+clientid_CAN;srcipint_172280416
+clientid_CAN;srcipint_172280418
+clientid_CAN;srcipint_172232790
+clientid_CAN;srcipint_2461575978
+clientid_CAN;srcipint_177035385
+clientid_CAN;srcipint_176999454
+clientid_CAN;srcport_80
+clientid_CAN;srcport_50740
+clientid_CAN;srcport_56213
+clientid_CAN;srcport_55370
+clientid_CAN;srcport_59010
+clientid_CAN;srcport_63312
+clientid_CAN;srcport_63571
+clientid_CAN;srcport_54383
+clientid_CAN;srcport_56981
+clientid_CAN;srcport_52739
+clientid_CAN;srcport_2123
+clientid_CAN;srcport_8080
+clientid_CAN;srcport_59527
+clientid_CAN;srcport_44103
+clientid_CAN;srcport_55954
+clientid_CAN;srcport_43114
+clientid_CAN;srcport_64308
+clientid_CAN;srcport_58256
+clientid_CAN;srcport_55311
+clientid_CAN;srcport_52749
+device_type_name_Firewall;dstipint_921055388
+device_type_name_Server Event Log;dstipint_-1
+device_type_name_Firewall;dstipint_174278677
+device_type_name_Firewall;dstipint_172950125
+device_type_name_Firewall;dstipint_676988105
+device_type_name_Firewall;dstipint_3224678942
+device_type_name_Firewall;dstipint_177049701
+device_type_name_Firewall;dstipint_2887713026
+device_type_name_Firewall;dstipint_2899905294
+device_type_name_Firewall;dstipint_3224001822
+device_type_name_Firewall;dstipint_176949369
+device_type_name_Firewall;dstipint_172230484
+device_type_name_Firewall;dstipint_176949371
+device_type_name_Firewall;dstipint_176949370
+device_type_name_Firewall;dstipint_2461573754
+device_type_name_Firewall;dstipint_2637662080
+device_type_name_Firewall;dstipint_2886730084
+device_type_name_Firewall;dstipint_172951983
+device_type_name_Firewall;dstipint_3455828902
+device_type_name_Firewall;dstipint_2461573667
+device_type_name_Server Event Log;dstport_0
+device_type_name_Firewall;dstport_5723
+device_type_name_Firewall;dstport_9100
+device_type_name_Server Event Log;dstport_2123
+device_type_name_Firewall;dstport_3389
+device_type_name_Firewall;dstport_5060
+device_type_name_Firewall;dstport_8006
+device_type_name_Firewall;dstport_8002
+device_type_name_Firewall;dstport_8007
+device_type_name_Firewall;dstport_8443
+device_type_name_Content Management;dstport_25
+device_type_name_Firewall;dstport_2123
+device_type_name_Firewall;dstport_333
+device_type_name_Firewall;dstport_38
+device_type_name_Firewall;dstport_8
+device_type_name_Firewall;dstport_34
+device_type_name_Firewall;dstport_31
+device_type_name_Firewall;dstport_30
+device_type_name_Firewall;dstport_33
+device_type_name_Firewall;dstport_98
+device_type_name_Server Event Log;srcipint_-1
+device_type_name_Firewall;srcipint_173041620
+device_type_name_Server Event Log;srcipint_176965941
+device_type_name_Server Event Log;srcipint_172230581
+device_type_name_Server Event Log;srcipint_176965924
+device_type_name_Server Event Log;srcipint_176947212
+device_type_name_Server Event Log;srcipint_172236990
+device_type_name_Server Event Log;srcipint_176947213
+device_type_name_Server Event Log;srcipint_176949385
+device_type_name_Server Event Log;srcipint_177025076
+device_type_name_Server Event Log;srcipint_177049810
+device_type_name_Server Event Log;srcipint_172234884
+device_type_name_Server Event Log;srcipint_176951585
+device_type_name_Firewall;srcipint_176947211
+device_type_name_Server Event Log;srcipint_172280416
+device_type_name_Server Event Log;srcipint_172280418
+device_type_name_Server Event Log;srcipint_172232790
+device_type_name_Server Event Log;srcipint_176999454
+device_type_name_Server Event Log;srcipint_177049932
+device_type_name_Server Event Log;srcipint_177035385
+device_type_name_Server Event Log;srcport_0
+device_type_name_Firewall;srcport_80
+device_type_name_Server Event Log;srcport_50740
+device_type_name_Server Event Log;srcport_56213
+device_type_name_Server Event Log;srcport_59010
+device_type_name_Server Event Log;srcport_55370
+device_type_name_Server Event Log;srcport_63312
+device_type_name_Server Event Log;srcport_63571
+device_type_name_Firewall;srcport_54383
+device_type_name_Firewall;srcport_56981
+device_type_name_Firewall;srcport_52739
+device_type_name_Firewall;srcport_8080
+device_type_name_Firewall;srcport_59527
+device_type_name_Firewall;srcport_44103
+device_type_name_Firewall;srcport_43114
+device_type_name_Firewall;srcport_55954
+device_type_name_Firewall;srcport_58256
+device_type_name_Server Event Log;srcport_64308
+device_type_name_Firewall;srcport_2123
+device_type_name_Server Event Log;srcport_2123
+device_vendor_REDHAT;dstipint_-1
+device_vendor_CHECK POINT;dstipint_921055388
+device_vendor_CHECK POINT;dstipint_676988105
+device_vendor_CHECK POINT;dstipint_3224678942
+device_vendor_CHECK POINT;dstipint_177049701
+device_vendor_CiscoSystems;dstipint_172950125
+device_vendor_CHECK POINT;dstipint_3224001822
+device_vendor_CHECK POINT;dstipint_176949369
+device_vendor_CHECK POINT;dstipint_172230484
+device_vendor_CHECK POINT;dstipint_176949371
+device_vendor_CHECK POINT;dstipint_176949370
+device_vendor_CHECK POINT;dstipint_2899905294
+device_vendor_CHECK POINT;dstipint_2887713026
+device_vendor_CiscoSystems;dstipint_174278677
+device_vendor_CHECK POINT;dstipint_3221554718
+device_vendor_CHECK POINT;dstipint_174278677
+device_vendor_CHECK POINT;dstipint_2637662080
+device_vendor_CHECK POINT;dstipint_3455828902
+device_vendor_CHECK POINT;dstipint_2637662084
+device_vendor_CHECK POINT;dstipint_172950125
+device_vendor_REDHAT;dstport_0
+device_vendor_CiscoSystems;dstport_5723
+device_vendor_MICROSOFT;dstport_0
+device_vendor_CiscoSystems;dstport_0
+device_vendor_REDHAT;dstport_2123
+device_vendor_CHECK POINT;dstport_3389
+device_vendor_CHECK POINT;dstport_5060
+device_vendor_CHECK POINT;dstport_8006
+device_vendor_CHECK POINT;dstport_8002
+device_vendor_CHECK POINT;dstport_8007
+device_vendor_CHECK POINT;dstport_8443
+device_vendor_CiscoSystems;dstport_9100
+device_vendor_CHECK POINT;dstport_9100
+device_vendor_REDHAT;dstport_25
+device_vendor_CHECK POINT;dstport_2123
+device_vendor_CHECK POINT;dstport_5723
+device_vendor_CiscoSystems;dstport_2123
+device_vendor_CiscoSystems;dstport_10039
+device_vendor_CHECK POINT;dstport_333
+device_vendor_CHECK POINT;dstport_38
+device_vendor_MICROSOFT;srcipint_-1
+device_vendor_REDHAT;srcipint_-1
+device_vendor_CHECK POINT;srcipint_173041620
+device_vendor_MICROSOFT;srcipint_176965941
+device_vendor_MICROSOFT;srcipint_172230581
+device_vendor_MICROSOFT;srcipint_176965924
+device_vendor_MICROSOFT;srcipint_177025076
+device_vendor_MICROSOFT;srcipint_177049810
+device_vendor_MICROSOFT;srcipint_172236990
+device_vendor_MICROSOFT;srcipint_176949385
+device_vendor_MICROSOFT;srcipint_176951585
+device_vendor_CHECK POINT;srcipint_176947211
+device_vendor_MICROSOFT;srcipint_172234884
+device_vendor_REDHAT;srcipint_176947212
+device_vendor_MICROSOFT;srcipint_177053749
+device_vendor_MICROSOFT;srcipint_177035385
+device_vendor_MICROSOFT;srcipint_176999454
+device_vendor_MICROSOFT;srcipint_172280416
+device_vendor_MICROSOFT;srcipint_172280418
+device_vendor_CHECK POINT;srcipint_2960589842
+device_vendor_REDHAT;srcport_0
+device_vendor_CHECK POINT;srcport_80
+device_vendor_MICROSOFT;srcport_0
+device_vendor_MICROSOFT;srcport_50740
+device_vendor_MICROSOFT;srcport_56213
+device_vendor_MICROSOFT;srcport_59010
+device_vendor_MICROSOFT;srcport_55370
+device_vendor_MICROSOFT;srcport_63312
+device_vendor_MICROSOFT;srcport_63571
+device_vendor_CHECK POINT;srcport_54383
+device_vendor_CHECK POINT;srcport_56981
+device_vendor_CHECK POINT;srcport_52739
+device_vendor_CHECK POINT;srcport_8080
+device_vendor_CHECK POINT;srcport_59527
+device_vendor_CHECK POINT;srcport_44103
+device_vendor_CHECK POINT;srcport_43114
+device_vendor_CHECK POINT;srcport_55954
+device_vendor_CHECK POINT;srcport_2123
+device_vendor_CHECK POINT;srcport_58256
+device_vendor_MICROSOFT;srcport_64308

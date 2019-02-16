@@ -1,0 +1,526 @@
+dstipint;-1;dstport;0;1
+dstipint;921055388;dstport;443;1
+dstipint;676988105;dstport;53;2
+dstipint;3224678942;dstport;53;3
+dstipint;177049701;dstport;53;4
+dstipint;3224001822;dstport;53;5
+dstipint;2637662080;dstport;443;6
+dstipint;2637662084;dstport;443;7
+dstipint;3224851230;dstport;53;8
+dstipint;172951983;dstport;0;9
+dstipint;2899905294;dstport;443;10
+dstipint;3455828902;dstport;53;11
+dstipint;174278677;dstport;443;12
+dstipint;2899905294;dstport;53;13
+dstipint;172230484;dstport;53;14
+dstipint;676988105;dstport;443;15
+dstipint;3224678942;dstport;443;16
+dstipint;2461577074;dstport;80;17
+dstipint;172950125;dstport;5723;18
+dstipint;177049701;dstport;443;19
+dstipint;-1;srcipint;176999454;11
+dstipint;-1;srcipint;172234884;12
+dstipint;-1;srcipint;172280416;13
+dstipint;-1;srcipint;172280418;14
+dstipint;-1;srcipint;176965941;1
+dstipint;921055388;srcipint;2461577758;2
+dstipint;-1;srcipint;176965924;3
+dstipint;-1;srcipint;172230581;4
+dstipint;-1;srcipint;176949385;5
+dstipint;-1;srcipint;177049810;6
+dstipint;-1;srcipint;177025076;7
+dstipint;-1;srcipint;176951585;8
+dstipint;-1;srcipint;172236990;9
+dstipint;-1;srcipint;177035385;10
+dstipint;-1;srcipint;172237199;15
+dstipint;-1;srcipint;176947213;15
+dstipint;-1;srcipint;176947212;16
+dstipint;-1;srcipint;177053749;16
+dstipint;-1;srcipint;172232790;17
+dstipint;-1;srcipint;177049703;18
+dstipint;-1;srcport;0;1
+dstipint;-1;srcport;50740;1
+dstipint;-1;srcport;59010;2
+dstipint;-1;srcport;56213;3
+dstipint;-1;srcport;55370;4
+dstipint;-1;srcport;63312;5
+dstipint;-1;srcport;63571;6
+dstipint;-1;srcport;64308;7
+dstipint;-1;srcport;57277;8
+dstipint;172951983;srcport;0;9
+dstipint;-1;srcport;53679;10
+dstipint;-1;srcport;48914;11
+dstipint;-1;srcport;48176;12
+dstipint;-1;srcport;55311;13
+dstipint;-1;srcport;53150;14
+dstipint;-1;srcport;58114;15
+dstipint;-1;srcport;48350;16
+dstipint;176949369;srcport;0;17
+dstipint;176949370;srcport;0;18
+dstipint;2461573754;srcport;0;19
+dstport;0;srcipint;-1;1
+dstport;445;srcipint;173041620;1
+dstport;0;srcipint;176965941;2
+dstport;445;srcipint;2461577758;2
+dstport;0;srcipint;176965924;3
+dstport;0;srcipint;172230581;4
+dstport;0;srcipint;176949385;5
+dstport;0;srcipint;177049810;6
+dstport;0;srcipint;172236990;7
+dstport;0;srcipint;177025076;8
+dstport;0;srcipint;176951585;9
+dstport;0;srcipint;172234884;10
+dstport;0;srcipint;177053749;11
+dstport;0;srcipint;172280416;12
+dstport;0;srcipint;172280418;13
+dstport;0;srcipint;177035385;14
+dstport;0;srcipint;172232790;15
+dstport;0;srcipint;176999454;16
+dstport;0;srcipint;177049703;17
+dstport;0;srcipint;172232791;18
+dstport;0;srcport;50740;1
+dstport;0;srcport;56213;2
+dstport;0;srcport;59010;3
+dstport;0;srcport;55370;4
+dstport;0;srcport;63571;5
+dstport;0;srcport;63312;6
+dstport;0;srcport;64308;7
+dstport;53;srcport;55370;8
+dstport;0;srcport;57277;9
+dstport;53;srcport;59527;10
+dstport;53;srcport;80;11
+dstport;53;srcport;50740;12
+dstport;0;srcport;53679;13
+dstport;443;srcport;54383;14
+dstport;443;srcport;52739;15
+dstport;443;srcport;59527;16
+dstport;0;srcport;48176;17
+dstport;5060;srcport;5081;18
+dstport;443;srcport;56981;19
+dstport;53;srcport;52739;20
+srcipint;-1;srcport;0;1
+srcipint;176951317;srcport;50740;1
+srcipint;176951317;srcport;56213;2
+srcipint;176951317;srcport;55370;3
+srcipint;176951317;srcport;59010;4
+srcipint;176951317;srcport;63312;5
+srcipint;176951317;srcport;63571;6
+srcipint;176951317;srcport;64308;7
+srcipint;176951317;srcport;55311;8
+srcipint;172236990;srcport;0;9
+srcipint;172230581;srcport;0;10
+srcipint;176965924;srcport;0;11
+srcipint;172234884;srcport;0;12
+srcipint;172232790;srcport;0;13
+srcipint;176949385;srcport;0;14
+srcipint;176947211;srcport;0;15
+srcipint;172280418;srcport;0;16
+srcipint;172280416;srcport;0;17
+srcipint;172232791;srcport;0;18
+srcipint;177049725;srcport;57277;19
+dstipint;176949369;eventname;accept;15
+dstipint;-1;eventname;sshd;1
+dstipint;-1;eventname;system;1
+dstipint;921055388;eventname;accept;1
+dstipint;676988105;eventname;accept;2
+dstipint;-1;eventname;Success Audit;2
+dstipint;174278677;eventname;permitted;3
+dstipint;2887713026;eventname;accept;4
+dstipint;177049701;eventname;accept;5
+dstipint;2899905294;eventname;accept;6
+dstipint;3224678942;eventname;accept;7
+dstipint;172950125;eventname;accept;8
+dstipint;176949371;eventname;accept;9
+dstipint;3224001822;eventname;accept;10
+dstipint;176949370;eventname;accept;11
+dstipint;3221554718;eventname;accept;12
+dstipint;2637662080;eventname;accept;13
+dstipint;172230484;eventname;accept;14
+dstipint;2637662084;eventname;accept;16
+dstipint;-1;eventname;ssh;16
+dstport;3389;eventname;drop;1
+dstport;0;eventname;Success Audit;1
+dstport;0;eventname;sshd;1
+dstport;0;eventname;system;1
+dstport;9100;eventname;drop;2
+dstport;5060;eventname;drop;3
+dstport;5723;eventname;Deny;4
+dstport;8006;eventname;drop;5
+dstport;0;eventname;ssh;5
+dstport;8007;eventname;drop;6
+dstport;2123;eventname;ACCEPT;7
+dstport;8002;eventname;accept;8
+dstport;8443;eventname;drop;9
+dstport;8002;eventname;drop;10
+dstport;5723;eventname;drop;11
+dstport;2123;eventname;drop;12
+dstport;0;eventname;PAM fail;12
+dstport;8443;eventname;accept;13
+dstport;8006;eventname;accept;14
+dstport;8007;eventname;accept;15
+dstipint;1078476810;report_device;10.142.248.251;1
+dstipint;-1;report_device;146.184.164.21;1
+dstipint;921055388;report_device;146.184.117.12;2
+dstipint;-1;report_device;varhpr139;2
+dstipint;-1;report_device;vadzpr35;2
+dstipint;-1;report_device;10.140.9.6;2
+dstipint;-1;report_device;varhpr374;3
+dstipint;-1;report_device;vadzpr34;3
+dstipint;921055388;report_device;146.184.117.16;3
+dstipint;-1;report_device;varhpr279;3
+dstipint;-1;report_device;varhpr195;4
+dstipint;-1;report_device;varhpr190;4
+dstipint;172950125;report_device;10.99.71.7;4
+dstipint;-1;report_device;varhpr289;4
+dstipint;-1;report_device;10.140.9.10;4
+dstipint;-1;report_device;varhpr187;4
+dstipint;-1;report_device;varhpr375;5
+dstipint;-1;report_device;varhpr193;5
+dstipint;-1;report_device;varhpr189;5
+dstipint;-1;report_device;10.68.7.190;5
+dstipint;676988105;report_device;10.99.71.7;5
+dstipint;-1;report_device;varhpr191;5
+dstport;443;report_device;10.142.248.251;1
+dstport;0;report_device;146.184.164.21;1
+dstport;0;report_device;vadzpr35;2
+dstport;0;report_device;varhpr139;2
+dstport;53;report_device;10.142.248.251;2
+dstport;0;report_device;10.140.9.6;2
+dstport;0;report_device;varhpr187;3
+dstport;80;report_device;10.142.248.251;3
+dstport;0;report_device;varhpr279;3
+dstport;0;report_device;vadzpr34;3
+dstport;0;report_device;varhpr189;4
+dstport;5723;report_device;10.79.1.9;4
+dstport;0;report_device;varhpr374;4
+dstport;0;report_device;10.140.9.10;4
+dstport;0;report_device;10.68.7.190;4
+dstport;0;report_device;10.68.248.5;4
+dstport;3389;report_device;10.99.71.7;5
+dstport;0;report_device;10.68.7.214;5
+dstport;0;report_device;varhpr188;5
+dstport;0;report_device;varhpr289;5
+dstport;0;report_device;varhpr136;5
+dstport;0;report_device;varhpr191;5
+eventname;drop;srcipint;173041620;1
+eventname;Success Audit;srcipint;-1;1
+eventname;drop;srcipint;2461577758;2
+eventname;system;srcipint;-1;2
+eventname;Success Audit;srcipint;176965941;2
+eventname;Success Audit;srcipint;172230581;3
+eventname;sshd;srcipint;176947212;3
+eventname;Success Audit;srcipint;176965924;4
+eventname;sshd;srcipint;176947213;4
+eventname;Success Audit;srcipint;177049810;5
+eventname;Success Audit;srcipint;172236990;6
+eventname;Success Audit;srcipint;176951585;7
+eventname;Success Audit;srcipint;176949385;8
+eventname;Success Audit;srcipint;177025076;9
+eventname;Failure Audit;srcipint;177053749;10
+eventname;Success Audit;srcipint;176999454;11
+eventname;Success Audit;srcipint;172234884;12
+eventname;accept;srcipint;176947211;13
+eventname;Failure Audit;srcipint;177035385;14
+eventname;Success Audit;srcipint;172280418;15
+eventname;Success Audit;srcport;0;1
+eventname;drop;srcport;80;1
+eventname;system;srcport;0;1
+eventname;sshd;srcport;0;2
+eventname;Success Audit;srcport;56213;2
+eventname;Success Audit;srcport;50740;3
+eventname;Success Audit;srcport;59010;4
+eventname;Success Audit;srcport;55370;5
+eventname;Success Audit;srcport;63312;6
+eventname;Success Audit;srcport;63571;7
+eventname;drop;srcport;54383;8
+eventname;drop;srcport;56981;9
+eventname;drop;srcport;52739;10
+eventname;Success Audit;srcport;64308;11
+eventname;drop;srcport;8080;12
+eventname;accept;srcport;2123;13
+eventname;drop;srcport;55954;14
+eventname;drop;srcport;44103;15
+eventname;Success Audit;srcport;55311;16
+eventname;accept;srcport;8080;17
+report_device;146.184.164.21;srcipint;-1;1
+report_device;146.184.117.12;srcipint;173041620;1
+report_device;10.141.144.101;srcipint;177025076;2
+report_device;10.141.144.101;srcipint;177033291;2
+report_device;10.141.144.101;srcipint;176951317;2
+report_device;vadzpr35;srcipint;-1;2
+report_device;varhpr139;srcipint;-1;2
+report_device;varhpr374;srcipint;-1;2
+report_device;10.99.71.7;srcipint;176947211;3
+report_device;10.141.144.100;srcipint;177035399;3
+report_device;varhpr279;srcipint;-1;3
+report_device;vadzpr34;srcipint;-1;3
+report_device;10.141.144.100;srcipint;177035398;4
+report_device;10.141.144.101;srcipint;177035385;4
+report_device;10.140.9.6;srcipint;-1;4
+report_device;10.140.9.10;srcipint;-1;5
+report_device;10.141.144.101;srcipint;177035399;5
+report_device;10.141.144.101;srcipint;177053749;5
+report_device;varhpr192;srcipint;-1;5
+report_device;varhpr289;srcipint;-1;5
+report_device;varhpr190;srcipint;-1;5
+report_device;146.184.164.21;srcport;0;1
+report_device;10.68.0.27;srcport;80;1
+report_device;10.141.144.203;srcport;50740;2
+report_device;varhpr139;srcport;0;2
+report_device;varhpr374;srcport;0;2
+report_device;vadzpr35;srcport;0;2
+report_device;10.141.144.101;srcport;56213;3
+report_device;vadzpr34;srcport;0;3
+report_device;varhpr279;srcport;0;3
+report_device;varhpr190;srcport;0;4
+report_device;varhpr289;srcport;0;4
+report_device;10.140.9.6;srcport;0;4
+report_device;10.141.144.101;srcport;59010;4
+report_device;varhpr195;srcport;0;4
+report_device;10.141.144.203;srcport;55370;5
+report_device;varhpr192;srcport;0;5
+report_device;10.140.9.10;srcport;0;5
+report_device;varhpr193;srcport;0;5
+report_device;varhpr138;srcport;0;5
+report_device;10.141.144.101;srcport;63312;6
+report_device;varhpr191;srcport;0;6
+clientid;CAN;dstipint;921055388;1
+clientid;CAN;dstipint;174278677;2
+clientid;CAN;dstipint;172950125;3
+clientid;CAN;dstipint;676988105;4
+clientid;CAN;dstipint;3224678942;5
+clientid;CAN;dstipint;177049701;6
+clientid;CAN;dstipint;2887713026;7
+clientid;CAN;dstipint;2899905294;8
+clientid;CAN;dstipint;176949369;9
+clientid;CAN;dstipint;3224001822;10
+clientid;CAN;dstipint;176949371;11
+clientid;CAN;dstipint;176949370;12
+clientid;CAN;dstipint;2461573754;13
+clientid;CAN;dstipint;3224851230;14
+clientid;CAN;dstipint;2637662080;15
+clientid;CAN;dstipint;172951983;16
+clientid;CAN;dstipint;2886730084;17
+clientid;CAN;dstipint;3455828902;18
+clientid;CAN;dstipint;2461573667;19
+clientid;CAN;dstipint;2461571137;20
+clientid;CAN;dstport;5723;1
+clientid;CAN;dstport;9100;2
+clientid;CAN;dstport;2123;3
+clientid;CAN;dstport;3389;4
+clientid;CAN;dstport;5060;5
+clientid;CAN;dstport;8006;6
+clientid;CAN;dstport;8002;7
+clientid;CAN;dstport;8007;8
+clientid;CAN;dstport;8443;9
+clientid;CAN;dstport;333;10
+clientid;CAN;dstport;38;11
+clientid;CAN;dstport;8;11
+clientid;CAN;dstport;31;12
+clientid;CAN;dstport;34;12
+clientid;CAN;dstport;30;12
+clientid;CAN;dstport;98;13
+clientid;CAN;dstport;310;14
+clientid;CAN;dstport;33;15
+clientid;CAN;dstport;32;15
+clientid;CAN;dstport;12;16
+clientid;CAN;srcipint;173041620;1
+clientid;CAN;srcipint;-1;1
+clientid;CAN;srcipint;176965941;2
+clientid;CAN;srcipint;172230581;3
+clientid;CAN;srcipint;176965924;4
+clientid;CAN;srcipint;176947211;5
+clientid;CAN;srcipint;172236990;6
+clientid;CAN;srcipint;176949385;7
+clientid;CAN;srcipint;177053749;8
+clientid;CAN;srcipint;176951585;9
+clientid;CAN;srcipint;177025076;10
+clientid;CAN;srcipint;172234884;11
+clientid;CAN;srcipint;177049810;12
+clientid;CAN;srcipint;2461575976;13
+clientid;CAN;srcipint;172280416;14
+clientid;CAN;srcipint;172280418;15
+clientid;CAN;srcipint;172232790;16
+clientid;CAN;srcipint;2461575978;17
+clientid;CAN;srcipint;177035385;18
+clientid;CAN;srcipint;176999454;19
+clientid;CAN;srcport;80;1
+clientid;CAN;srcport;50740;2
+clientid;CAN;srcport;56213;3
+clientid;CAN;srcport;55370;4
+clientid;CAN;srcport;59010;5
+clientid;CAN;srcport;63312;6
+clientid;CAN;srcport;63571;7
+clientid;CAN;srcport;54383;8
+clientid;CAN;srcport;56981;9
+clientid;CAN;srcport;52739;10
+clientid;CAN;srcport;2123;11
+clientid;CAN;srcport;8080;12
+clientid;CAN;srcport;59527;13
+clientid;CAN;srcport;44103;14
+clientid;CAN;srcport;55954;15
+clientid;CAN;srcport;43114;16
+clientid;CAN;srcport;64308;17
+clientid;CAN;srcport;58256;18
+clientid;CAN;srcport;55311;19
+clientid;CAN;srcport;52749;20
+device_type_name;Firewall;dstipint;921055388;1
+device_type_name;Server Event Log;dstipint;-1;1
+device_type_name;Firewall;dstipint;174278677;2
+device_type_name;Firewall;dstipint;172950125;3
+device_type_name;Firewall;dstipint;676988105;4
+device_type_name;Firewall;dstipint;3224678942;5
+device_type_name;Firewall;dstipint;177049701;6
+device_type_name;Firewall;dstipint;2887713026;7
+device_type_name;Firewall;dstipint;2899905294;8
+device_type_name;Firewall;dstipint;3224001822;9
+device_type_name;Firewall;dstipint;176949369;10
+device_type_name;Firewall;dstipint;172230484;11
+device_type_name;Firewall;dstipint;176949371;12
+device_type_name;Firewall;dstipint;176949370;13
+device_type_name;Firewall;dstipint;2461573754;14
+device_type_name;Firewall;dstipint;2637662080;15
+device_type_name;Firewall;dstipint;2886730084;16
+device_type_name;Firewall;dstipint;172951983;17
+device_type_name;Firewall;dstipint;3455828902;18
+device_type_name;Firewall;dstipint;2461573667;19
+device_type_name;Server Event Log;dstport;0;1
+device_type_name;Firewall;dstport;5723;1
+device_type_name;Firewall;dstport;9100;2
+device_type_name;Server Event Log;dstport;2123;3
+device_type_name;Firewall;dstport;3389;4
+device_type_name;Firewall;dstport;5060;5
+device_type_name;Firewall;dstport;8006;6
+device_type_name;Firewall;dstport;8002;7
+device_type_name;Firewall;dstport;8007;8
+device_type_name;Firewall;dstport;8443;9
+device_type_name;Content Management;dstport;25;10
+device_type_name;Firewall;dstport;2123;10
+device_type_name;Firewall;dstport;333;11
+device_type_name;Firewall;dstport;38;12
+device_type_name;Firewall;dstport;8;13
+device_type_name;Firewall;dstport;34;14
+device_type_name;Firewall;dstport;31;14
+device_type_name;Firewall;dstport;30;14
+device_type_name;Firewall;dstport;33;15
+device_type_name;Firewall;dstport;98;15
+device_type_name;Server Event Log;srcipint;-1;1
+device_type_name;Firewall;srcipint;173041620;1
+device_type_name;Server Event Log;srcipint;176965941;2
+device_type_name;Server Event Log;srcipint;172230581;3
+device_type_name;Server Event Log;srcipint;176965924;4
+device_type_name;Server Event Log;srcipint;176947212;5
+device_type_name;Server Event Log;srcipint;172236990;5
+device_type_name;Server Event Log;srcipint;176947213;6
+device_type_name;Server Event Log;srcipint;176949385;6
+device_type_name;Server Event Log;srcipint;177025076;7
+device_type_name;Server Event Log;srcipint;177049810;8
+device_type_name;Server Event Log;srcipint;172234884;9
+device_type_name;Server Event Log;srcipint;176951585;10
+device_type_name;Firewall;srcipint;176947211;11
+device_type_name;Server Event Log;srcipint;172280416;12
+device_type_name;Server Event Log;srcipint;172280418;13
+device_type_name;Server Event Log;srcipint;172232790;14
+device_type_name;Server Event Log;srcipint;176999454;15
+device_type_name;Server Event Log;srcipint;177049932;15
+device_type_name;Server Event Log;srcipint;177035385;16
+device_type_name;Server Event Log;srcport;0;1
+device_type_name;Firewall;srcport;80;1
+device_type_name;Server Event Log;srcport;50740;2
+device_type_name;Server Event Log;srcport;56213;3
+device_type_name;Server Event Log;srcport;59010;4
+device_type_name;Server Event Log;srcport;55370;5
+device_type_name;Server Event Log;srcport;63312;6
+device_type_name;Server Event Log;srcport;63571;7
+device_type_name;Firewall;srcport;54383;8
+device_type_name;Firewall;srcport;56981;9
+device_type_name;Firewall;srcport;52739;10
+device_type_name;Firewall;srcport;8080;11
+device_type_name;Firewall;srcport;59527;12
+device_type_name;Firewall;srcport;44103;13
+device_type_name;Firewall;srcport;43114;14
+device_type_name;Firewall;srcport;55954;15
+device_type_name;Firewall;srcport;58256;16
+device_type_name;Server Event Log;srcport;64308;17
+device_type_name;Firewall;srcport;2123;18
+device_type_name;Server Event Log;srcport;2123;19
+device_vendor;REDHAT;dstipint;-1;1
+device_vendor;CHECK POINT;dstipint;921055388;1
+device_vendor;CHECK POINT;dstipint;676988105;2
+device_vendor;CHECK POINT;dstipint;3224678942;3
+device_vendor;CHECK POINT;dstipint;177049701;4
+device_vendor;CiscoSystems;dstipint;172950125;5
+device_vendor;CHECK POINT;dstipint;3224001822;6
+device_vendor;CHECK POINT;dstipint;176949369;7
+device_vendor;CHECK POINT;dstipint;172230484;8
+device_vendor;CHECK POINT;dstipint;176949371;9
+device_vendor;CHECK POINT;dstipint;176949370;10
+device_vendor;CHECK POINT;dstipint;2899905294;11
+device_vendor;CHECK POINT;dstipint;2887713026;12
+device_vendor;CiscoSystems;dstipint;174278677;13
+device_vendor;CHECK POINT;dstipint;3221554718;14
+device_vendor;CHECK POINT;dstipint;174278677;15
+device_vendor;CHECK POINT;dstipint;2637662080;16
+device_vendor;CHECK POINT;dstipint;3455828902;17
+device_vendor;CHECK POINT;dstipint;2637662084;18
+device_vendor;CHECK POINT;dstipint;172950125;19
+device_vendor;REDHAT;dstport;0;1
+device_vendor;CiscoSystems;dstport;5723;1
+device_vendor;MICROSOFT;dstport;0;1
+device_vendor;CiscoSystems;dstport;0;2
+device_vendor;REDHAT;dstport;2123;2
+device_vendor;CHECK POINT;dstport;3389;3
+device_vendor;CHECK POINT;dstport;5060;4
+device_vendor;CHECK POINT;dstport;8006;5
+device_vendor;CHECK POINT;dstport;8002;6
+device_vendor;CHECK POINT;dstport;8007;7
+device_vendor;CHECK POINT;dstport;8443;8
+device_vendor;CiscoSystems;dstport;9100;9
+device_vendor;CHECK POINT;dstport;9100;10
+device_vendor;REDHAT;dstport;25;11
+device_vendor;CHECK POINT;dstport;2123;11
+device_vendor;CHECK POINT;dstport;5723;12
+device_vendor;CiscoSystems;dstport;2123;13
+device_vendor;CiscoSystems;dstport;10039;14
+device_vendor;CHECK POINT;dstport;333;14
+device_vendor;CHECK POINT;dstport;38;15
+device_vendor;MICROSOFT;srcipint;-1;1
+device_vendor;REDHAT;srcipint;-1;1
+device_vendor;CHECK POINT;srcipint;173041620;1
+device_vendor;MICROSOFT;srcipint;176965941;2
+device_vendor;MICROSOFT;srcipint;172230581;3
+device_vendor;MICROSOFT;srcipint;176965924;4
+device_vendor;MICROSOFT;srcipint;177025076;5
+device_vendor;MICROSOFT;srcipint;177049810;6
+device_vendor;MICROSOFT;srcipint;172236990;7
+device_vendor;MICROSOFT;srcipint;176949385;8
+device_vendor;MICROSOFT;srcipint;176951585;9
+device_vendor;CHECK POINT;srcipint;176947211;10
+device_vendor;MICROSOFT;srcipint;172234884;11
+device_vendor;REDHAT;srcipint;176947212;11
+device_vendor;MICROSOFT;srcipint;177053749;12
+device_vendor;MICROSOFT;srcipint;177035385;13
+device_vendor;MICROSOFT;srcipint;176999454;14
+device_vendor;MICROSOFT;srcipint;172280416;15
+device_vendor;MICROSOFT;srcipint;172280418;16
+device_vendor;CHECK POINT;srcipint;2960589842;17
+device_vendor;REDHAT;srcport;0;1
+device_vendor;CHECK POINT;srcport;80;1
+device_vendor;MICROSOFT;srcport;0;2
+device_vendor;MICROSOFT;srcport;50740;2
+device_vendor;MICROSOFT;srcport;56213;3
+device_vendor;MICROSOFT;srcport;59010;4
+device_vendor;MICROSOFT;srcport;55370;5
+device_vendor;MICROSOFT;srcport;63312;6
+device_vendor;MICROSOFT;srcport;63571;7
+device_vendor;CHECK POINT;srcport;54383;8
+device_vendor;CHECK POINT;srcport;56981;9
+device_vendor;CHECK POINT;srcport;52739;10
+device_vendor;CHECK POINT;srcport;8080;11
+device_vendor;CHECK POINT;srcport;59527;12
+device_vendor;CHECK POINT;srcport;44103;13
+device_vendor;CHECK POINT;srcport;43114;14
+device_vendor;CHECK POINT;srcport;55954;15
+device_vendor;CHECK POINT;srcport;2123;16
+device_vendor;CHECK POINT;srcport;58256;17
+device_vendor;MICROSOFT;srcport;64308;18
