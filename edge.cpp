@@ -1,11 +1,14 @@
-#include "edge.h"
-#include "node.h"
 
+#include <iostream>
 #include <qmath.h>
 #include <QPainter>
 
-Edge::Edge(Node *sourceNode, Node *destNode)
+#include "edge.h"
+#include "node.h"
+
+Edge::Edge(Node *sourceNode, Node *destNode, int weight)
     : arrowSize(10)
+    , weight(weight <= 0 ? 1 : weight)
 {
     setAcceptedMouseButtons(0);
     source = sourceNode;
@@ -68,10 +71,13 @@ void Edge::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
         return;
 
     // Draw the line itself
-    painter->setPen(QPen(Qt::black, 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    int w = 255 - weight * 11 + 20;
+    painter->setPen(QPen(QBrush(QColor(w, w, w)), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    //painter->setPen(QPen(Qt::black, 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     painter->drawLine(line);
 
     // Draw the arrows
+/*
     double angle = std::atan2(-line.dy(), line.dx());
 
     QPointF sourceArrowP1 = sourcePoint + QPointF(sin(angle + M_PI / 3) * arrowSize,
@@ -84,6 +90,7 @@ void Edge::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
                                               cos(angle - M_PI + M_PI / 3) * arrowSize);
 
     painter->setBrush(Qt::black);
-    //painter->drawPolygon(QPolygonF() << line.p1() << sourceArrowP1 << sourceArrowP2);
-    //painter->drawPolygon(QPolygonF() << line.p2() << destArrowP1 << destArrowP2);
+    painter->drawPolygon(QPolygonF() << line.p1() << sourceArrowP1 << sourceArrowP2);
+    painter->drawPolygon(QPolygonF() << line.p2() << destArrowP1 << destArrowP2);
+*/
 }

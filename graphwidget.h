@@ -3,6 +3,7 @@
 
 #include <QGraphicsView>
 #include "soddata.h"
+#include "params.h"
 
 class Node;
 
@@ -30,8 +31,9 @@ protected:
 
 private:
     int timerId;
-
     SodData soddata;
+    void SetItemsLayout(TLayout dm);
+
 };
 
 #endif // GRAPHWIDGET_H

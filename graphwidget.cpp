@@ -1,4 +1,5 @@
 
+#include <iostream>
 #include <math.h>
 #include <vector>
 #include <QKeyEvent>
@@ -8,21 +9,46 @@
 #include "node.h"
 #include "params.h"
 
+static int x_square = NODE_minx;
+static int y_square = NODE_miny;
 
 static std::pair<int, int> GetNextPos()
 {
-    static int x = NODE_minx;
-    static int y = NODE_miny;
+    auto p = std::make_pair(x_square, y_square);
+    x_square += NODE_step;
+    if(x_square > NODE_maxx) {
+        x_square = NODE_minx;
+        y_square += NODE_step;
+    }
+    return p;
+}
 
-    auto p = std::make_pair(x, y);
+void GraphWidget::SetItemsLayout(TLayout layout)
+{
+//    for(auto& i : items()) {
+//        i->hide();
+//    }
 
-    x += NODE_step;
-    if(x > NODE_maxx) {
-        x = NODE_minx;
-        y += NODE_step;
+    if(layout == TLayout::SQUARE) {
+        x_square = NODE_minx;
+        y_square = NODE_miny;
+        for(auto& i : items()) {
+            auto p = GetNextPos();
+            i->setPos(p.first, p.second);
+        }
+    } else {
+        auto& n = soddata.GetNodes();
+
+        for(auto& i : items()) {
+            auto p = GetNextPos();
+            i->setPos(p.first, p.second);
+        }
+
     }
 
-    return p;
+//    for(auto& i : items()) {
+//        i->show();
+//    }
 }
 
 GraphWidget::GraphWidget(char* filename, QWidget *parent)
@@ -50,17 +76,17 @@ GraphWidget::GraphWidget(char* filename, QWidget *parent)
 
     std::vector<Node*> nodes;
     for(auto sodn : soddata.GetNodes()) {
-        Node* n = new Node(this, sodn.category, sodn.value, TDisplayMode::SQUARE);
+        Node* n = new Node(this, sodn.category, sodn.value, TLayout::SQUARE);
         nodes.push_back(n);
-        auto p = GetNextPos();
-        n->setPos(p.first, p.second);
         scene->addItem(n);
     }
+
+    SetItemsLayout(TLayout::SQUARE);
 
     for(auto e : soddata.GetEdges()) {
         Node* n1 = nodes[e.l];
         Node* n2 = nodes[e.r];
-        scene->addItem(new Edge(n1, n2));
+        scene->addItem(new Edge(n1, n2, e.w));
     }
 }
 
@@ -78,6 +104,12 @@ void GraphWidget::keyPressEvent(QKeyEvent *event)
         break;
     case Qt::Key_Minus:
         zoomOut();
+        break;
+    case Qt::Key_1:
+        SetItemsLayout(TLayout::SQUARE);
+        break;
+    case Qt::Key_2:
+        SetItemsLayout(TLayout::CATEGORIES);
         break;
     default:
         QGraphicsView::keyPressEvent(event);
@@ -107,11 +139,11 @@ void GraphWidget::drawBackground(QPainter *painter, const QRectF &rect)
 
     // fill:
 
-    QLinearGradient gradient(sceneRect.topLeft(), sceneRect.bottomRight());
+/*    QLinearGradient gradient(sceneRect.topLeft(), sceneRect.bottomRight());
     gradient.setColorAt(0, Qt::white);
     gradient.setColorAt(1, Qt::lightGray);
     painter->fillRect(rect.intersected(sceneRect), gradient);
-    painter->setBrush(Qt::NoBrush);
+    painter->setBrush(Qt::NoBrush);*/
     painter->drawRect(sceneRect);
 
     // text:

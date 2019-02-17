@@ -17,6 +17,6 @@ const int WIN_SIZE_Y = 1.2 * (abs(NODE_miny) + NODE_maxy);
 typedef enum {
     SQUARE = 1,
     CATEGORIES = 2
-} TDisplayMode;
+} TLayout;
 
 #endif // PARAMS_H

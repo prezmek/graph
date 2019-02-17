@@ -8,7 +8,7 @@ class Node;
 class Edge : public QGraphicsItem
 {
 public:
-    Edge(Node *sourceNode, Node *destNode);
+    Edge(Node *sourceNode, Node *destNode, int weight = 20);
 
     Node *sourceNode() const;
     Node *destNode() const;
@@ -24,10 +24,10 @@ protected:
 
 private:
     Node *source, *dest;
-
     QPointF sourcePoint;
     QPointF destPoint;
     qreal arrowSize;
+    int weight;
 };
 
 #endif // EDGE_H

@@ -9,11 +9,11 @@
 #include "graphwidget.h"
 #include "params.h"
 
-Node::Node(GraphWidget *graphWidget, std::string category, std::string value, TDisplayMode disp_mode)
+Node::Node(GraphWidget *graphWidget, std::string category, std::string value, TLayout layout)
     : graph(graphWidget)
     , category(category)
     , value(value)
-    , disp_mode(disp_mode)
+    , layout(layout)
 {
     setFlag(ItemIsMovable);
     setFlag(ItemSendsGeometryChanges);
@@ -35,13 +35,13 @@ QList<Edge *> Node::edges() const
 QRectF Node::boundingRect() const
 {
     qreal adjust = 2;
-    return QRectF( -10 - adjust, -10 - adjust, 83 + adjust, 43 + adjust);
+    return QRectF( -10 - adjust, -10 - adjust, 43 + adjust, 43 + adjust);
 }
 
 QPainterPath Node::shape() const
 {
     QPainterPath path;
-    path.addEllipse(-10, -10, 80, 40);
+    path.addEllipse(-10, -10, 40, 40);
     return path;
 }
 
@@ -59,7 +59,7 @@ void Node::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     painter->setPen(QPen(Qt::black, 0));
     painter->drawEllipse(-10, -10, 20, 20);
 
-    if(disp_mode == TDisplayMode::SQUARE) {
+    if(layout == TLayout::SQUARE) {
         QFont font = painter->font();
         font.setPointSize(2);
         painter->setFont(font);

@@ -14,7 +14,7 @@ QT_END_NAMESPACE
 class Node : public QGraphicsItem
 {
 public:
-    Node(GraphWidget *graphWidget, std::string category, std::string value, TDisplayMode disp_mode);
+    Node(GraphWidget *graphWidget, std::string category, std::string value, TLayout layout);
 
     void addEdge(Edge *edge);
     QList<Edge *> edges() const;
@@ -39,7 +39,7 @@ private:
 
     std::string category;
     std::string value;
-    TDisplayMode disp_mode;
+    TLayout layout;
 };
 
 #endif // NODE_H

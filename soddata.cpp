@@ -38,15 +38,12 @@ void SodData::ReadFile(char* filename)
 
         int no1 = AddNode(fields[0].toStdString(), fields[1].toStdString());
         int no2 = AddNode(fields[2].toStdString(), fields[3].toStdString());
-        edges.push_back(Edge(no1, no2, fields[3].toInt()));
+        int weight = fields[4].toInt();
+        edges.push_back(Edge(no1, no2, weight));
     }
 
     file.close();
 
-    std::cout << "No of Pairs: " << edges.size() << std::endl;
-    std::cout << "No of unique names: " << nodes.size() << std::endl;
-
-//    for(auto p : pairs) {
-//        std::cout << p.l << " " << p.r << " --> " << names[p.l] << " " << names[p.r] << std::endl;
-//    }
+    std::cout << "No of nodes: " << nodes.size() << std::endl;
+    std::cout << "No of edges: " << edges.size() << std::endl;
 }
