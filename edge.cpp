@@ -71,7 +71,7 @@ void Edge::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
         return;
 
     // Draw the line itself
-    int w = 255 - weight * 11 + 20;
+    int w = 255 - (weight * 11 + 20);
     painter->setPen(QPen(QBrush(QColor(w, w, w)), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     //painter->setPen(QPen(Qt::black, 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     painter->drawLine(line);

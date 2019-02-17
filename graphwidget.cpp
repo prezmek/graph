@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <math.h>
+#include <map>
 #include <vector>
 #include <QKeyEvent>
 
@@ -25,30 +26,55 @@ static std::pair<int, int> GetNextPos()
 
 void GraphWidget::SetItemsLayout(TLayout layout)
 {
-//    for(auto& i : items()) {
-//        i->hide();
-//    }
-
-    if(layout == TLayout::SQUARE) {
-        x_square = NODE_minx;
-        y_square = NODE_miny;
-        for(auto& i : items()) {
-            auto p = GetNextPos();
-            i->setPos(p.first, p.second);
-        }
-    } else {
-        auto& n = soddata.GetNodes();
-
-        for(auto& i : items()) {
-            auto p = GetNextPos();
-            i->setPos(p.first, p.second);
-        }
-
+    for(auto& i : items()) {
+        i->hide();
     }
 
-//    for(auto& i : items()) {
-//        i->show();
-//    }
+    if(layout == TLayout::CATEGORIES) {
+
+        struct Item {
+            int i;  // item number
+            std::string value;
+            int x,y;
+        };
+
+        std::map<std::string, std::vector<Item>> categories;
+
+        for(int i = 0; i < soddata.GetNodes().size(); i++) {
+            auto& n = soddata.GetNodes()[i];
+            Item it;
+            it.i = i;
+            it.value = n.value;
+            categories[n.category].push_back(it);
+        }
+
+#if 0
+        for(auto& m : categories) {
+            std::cout << "==>" << m.first << ":" << std::endl;
+            for(auto& v : m.second) {
+                std::cout << v.value << " ";
+            }
+            std::cout << std::endl;
+        }
+#endif
+
+        //for(auto& i : items()) {
+        //    auto p = GetNextPos();
+        //    i->setPos(p.first, p.second);
+        //}
+
+    } else {
+        x_square = NODE_minx;
+        y_square = NODE_miny;
+        for(int i = 0; i < soddata.GetNodes().size(); i++) {
+            auto p = GetNextPos();
+            items()[i]->setPos(p.first, p.second);
+        }
+    }
+
+    for(auto& i : items()) {
+        i->show();
+    }
 }
 
 GraphWidget::GraphWidget(char* filename, QWidget *parent)
