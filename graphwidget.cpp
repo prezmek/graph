@@ -50,7 +50,7 @@ GraphWidget::GraphWidget(char* filename, QWidget *parent)
 
     std::vector<Node*> nodes;
     for(auto sodn : soddata.GetNodes()) {
-        Node* n = new Node(this);
+        Node* n = new Node(this, sodn.category, sodn.value, TDisplayMode::SQUARE);
         nodes.push_back(n);
         auto p = GetNextPos();
         n->setPos(p.first, p.second);

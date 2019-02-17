@@ -11,9 +11,12 @@ const int NODE_maxx = NODE_count * NODE_step;
 const int NODE_miny = - (NODE_count * NODE_step);
 const int NODE_maxy = NODE_count * NODE_step;
 
-
-
 const int WIN_SIZE_X = 2 * (abs(NODE_minx) + NODE_maxx);
 const int WIN_SIZE_Y = 1.2 * (abs(NODE_miny) + NODE_maxy);
+
+typedef enum {
+    SQUARE = 1,
+    CATEGORIES = 2
+} TDisplayMode;
 
 #endif // PARAMS_H

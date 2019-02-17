@@ -1,14 +1,19 @@
-#include "edge.h"
-#include "node.h"
-#include "graphwidget.h"
 
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>
 #include <QStyleOption>
 
-Node::Node(GraphWidget *graphWidget)
+#include "edge.h"
+#include "node.h"
+#include "graphwidget.h"
+#include "params.h"
+
+Node::Node(GraphWidget *graphWidget, std::string category, std::string value, TDisplayMode disp_mode)
     : graph(graphWidget)
+    , category(category)
+    , value(value)
+    , disp_mode(disp_mode)
 {
     setFlag(ItemIsMovable);
     setFlag(ItemSendsGeometryChanges);
@@ -42,9 +47,9 @@ QPainterPath Node::shape() const
 
 void Node::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *)
 {
-    painter->setPen(Qt::NoPen);
-    painter->setBrush(Qt::darkGray);
-    painter->drawEllipse(-7, -7, 20, 20);
+    //painter->setPen(Qt::NoPen);
+    //painter->setBrush(Qt::darkGray);
+    //painter->drawEllipse(-7, -7, 20, 20);
 
     QRadialGradient gradient(-3, -3, 10);
     gradient.setColorAt(0, Qt::green);
@@ -54,13 +59,15 @@ void Node::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     painter->setPen(QPen(Qt::black, 0));
     painter->drawEllipse(-10, -10, 20, 20);
 
-    painter->setPen(Qt::yellow);
-    QFont font = painter->font();
-    font.setPointSize(2);
-    painter->setFont(font);
-    painter->drawText(-10, -3, "One123456789");
-    //painter->setPen(Qt::red);
-    //painter->drawText(QFontMetrics(painter->font()).size(Qt::TextSingleLine, "One ").width(), 0, "Two");
+    if(disp_mode == TDisplayMode::SQUARE) {
+        QFont font = painter->font();
+        font.setPointSize(2);
+        painter->setFont(font);
+        painter->setPen(Qt::red);
+        painter->drawText(-10, -1, QString::fromStdString(category));
+        painter->setPen(Qt::yellow);
+        painter->drawText(-10, 5, QString::fromStdString(value));
+    }
 }
 
 QVariant Node::itemChange(GraphicsItemChange change, const QVariant &value)
