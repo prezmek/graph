@@ -24,13 +24,21 @@ static std::pair<int, int> GetNextPos()
     return p;
 }
 
+static void GetPointsOnCircle(int r, int no, int xp, int yp, std::vector<int>& x, std::vector<int>& y)
+{
+    for(int i = 0; i < no; i++) {
+        double t = i * 2 * 3.14159 / no;
+        x.push_back(r * cos(t) + xp);
+        y.push_back(r * sin(t) + yp);
+    }
+}
 void GraphWidget::SetItemsLayout(TLayout layout)
 {
-    for(auto& i : items()) {
-        i->hide();
-    }
-
     if(layout == TLayout::CATEGORIES) {
+
+        for(auto& i : items()) {
+            i->hide();
+        }
 
         struct Item {
             int i;  // item number
@@ -57,23 +65,38 @@ void GraphWidget::SetItemsLayout(TLayout layout)
             std::cout << std::endl;
         }
 #endif
+        int cats = categories.size();
+        std::vector<int> x;
+        std::vector<int> y;
+        GetPointsOnCircle(330, cats, 0, 0, x, y);
+        int c = 0;
+        for(auto& m : categories) {
+            int no_nodes = m.second.size();
+            std::vector<int> xx;
+            std::vector<int> yy;
+            GetPointsOnCircle(80, no_nodes, x[c], y[c], xx, yy);
+            for(int i = 0; i < no_nodes; i++) {
+                items()[m.second[i].i]->setPos(xx[i], yy[i]);
+            }
+            c++;
+        }
 
-        //for(auto& i : items()) {
-        //    auto p = GetNextPos();
-        //    i->setPos(p.first, p.second);
-        //}
-
+        for(auto& it : items()) {
+            it->show();
+        }
     } else {
         x_square = NODE_minx;
         y_square = NODE_miny;
+        for(auto& it : items()) {
+            it->hide();
+        }
         for(int i = 0; i < soddata.GetNodes().size(); i++) {
             auto p = GetNextPos();
             items()[i]->setPos(p.first, p.second);
         }
-    }
-
-    for(auto& i : items()) {
-        i->show();
+        for(auto& it : items()) {
+            it->show();
+        }
     }
 }
 

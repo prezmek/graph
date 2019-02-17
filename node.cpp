@@ -35,13 +35,13 @@ QList<Edge *> Node::edges() const
 QRectF Node::boundingRect() const
 {
     qreal adjust = 2;
-    return QRectF( -10 - adjust, -10 - adjust, 43 + adjust, 43 + adjust);
+    return QRectF( -10 - adjust, -10 - adjust, 43 + adjust, 23 + adjust);
 }
 
 QPainterPath Node::shape() const
 {
     QPainterPath path;
-    path.addEllipse(-10, -10, 40, 40);
+    path.addEllipse(-10, -10, 40, 20);
     return path;
 }
 
