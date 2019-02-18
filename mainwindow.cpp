@@ -6,7 +6,7 @@
 #include "mainwindow.h"
 #include "graphwidget.h"
 #include "params.h"
-
+#include "node.h"
 
 QWidget* MainWindow::CreateControlsLayout()
 {
@@ -81,10 +81,16 @@ QWidget* MainWindow::CreateControlsNodes()
     slider->setSingleStep(1);
     slider->setTickInterval(1);
 
+    QPushButton* but_select = new QPushButton("Select All");
+    QPushButton* but_unselect = new QPushButton("UnSelect All");
+
     // Connect Items
 
     connect(slider, SIGNAL(valueChanged(int)), edgesSpinBox, SLOT(setValue(int)));
     connect(edgesSpinBox, SIGNAL(valueChanged(int)), slider, SLOT(setValue(int)));
+
+    connect(but_select, SIGNAL(clicked()), this, SLOT(selectNodesAll()));
+    connect(but_unselect, SIGNAL(clicked()), this, SLOT(unselectNodesAll()));
 
     // Layout
 
@@ -92,6 +98,8 @@ QWidget* MainWindow::CreateControlsNodes()
     controlsLayout->addWidget(weightLabel, 0, 0);
     controlsLayout->addWidget(edgesSpinBox, 0, 1);
     controlsLayout->addWidget(slider, 0, 2);
+    controlsLayout->addWidget(but_select, 1, 0);
+    controlsLayout->addWidget(but_unselect, 1, 1);
 
     controlsGroup->setLayout(controlsLayout);
 
@@ -131,7 +139,7 @@ MainWindow::MainWindow(char* filename)
 
     // Create info label
 
-    infoLabel = new QLabel(tr("<i>Double click on node to see its parameters</i>"));
+    infoLabel = new QLabel(tr("<b>Click</b> on node to see its parameters <b>Double click</b> on node to select it"));
     infoLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
     infoLabel->setAlignment(Qt::AlignCenter);
     layout->addWidget(infoLabel);
@@ -166,24 +174,19 @@ void MainWindow::setEdgeWeightValue(int value)
     QApplication::sendEvent(graph_widget, &event);
 }
 
-void MainWindow::newFile()
+void MainWindow::selectNodesAll()
 {
-    infoLabel->setText(tr("Invoked <b>File|New</b>"));
+    std::cout << "sel" << std::endl;
+}
+
+void MainWindow::unselectNodesAll()
+{
+    std::cout << "unsel" << std::endl;
 }
 
 void MainWindow::open()
 {
     infoLabel->setText(tr("Invoked <b>File|Open</b>"));
-}
-
-void MainWindow::save()
-{
-    infoLabel->setText(tr("Invoked <b>File|Save</b>"));
-}
-
-void MainWindow::print()
-{
-    infoLabel->setText(tr("Invoked <b>File|Print</b>"));
 }
 
 void MainWindow::about()
@@ -201,25 +204,10 @@ void MainWindow::createActions()
 {
     // MENU actions
 
-    newAct = new QAction(tr("&New"), this);
-    newAct->setShortcuts(QKeySequence::New);
-    newAct->setStatusTip(tr("Create a new file"));
-    connect(newAct, &QAction::triggered, this, &MainWindow::newFile);
-
     openAct = new QAction(tr("&Open..."), this);
     openAct->setShortcuts(QKeySequence::Open);
     openAct->setStatusTip(tr("Open an existing file"));
     connect(openAct, &QAction::triggered, this, &MainWindow::open);
-
-    saveAct = new QAction(tr("&Save"), this);
-    saveAct->setShortcuts(QKeySequence::Save);
-    saveAct->setStatusTip(tr("Save the document to disk"));
-    connect(saveAct, &QAction::triggered, this, &MainWindow::save);
-
-    printAct = new QAction(tr("&Print..."), this);
-    printAct->setShortcuts(QKeySequence::Print);
-    printAct->setStatusTip(tr("Print the document"));
-    connect(printAct, &QAction::triggered, this, &MainWindow::print);
 
     exitAct = new QAction(tr("E&xit"), this);
     exitAct->setShortcuts(QKeySequence::Quit);
@@ -241,10 +229,7 @@ void MainWindow::createActions()
 void MainWindow::createMenus()
 {
     fileMenu = menuBar()->addMenu(tr("&File"));
-    fileMenu->addAction(newAct);
     fileMenu->addAction(openAct);
-    fileMenu->addAction(saveAct);
-    fileMenu->addAction(printAct);
     fileMenu->addSeparator();
     fileMenu->addAction(exitAct);
 

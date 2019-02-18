@@ -55,8 +55,13 @@ void Node::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     //painter->drawEllipse(-7, -7, 20, 20);
 
     QRadialGradient gradient(-3, -3, 10);
-    gradient.setColorAt(0, Qt::green);
-    gradient.setColorAt(1, Qt::darkGreen);
+    if(selected) {
+        gradient.setColorAt(0, Qt::blue);
+        gradient.setColorAt(1, Qt::darkBlue);
+    } else {
+        gradient.setColorAt(0, Qt::green);
+        gradient.setColorAt(1, Qt::darkGreen);
+    }
     painter->setBrush(gradient);
 
     painter->setPen(QPen(Qt::black, 0));
@@ -90,6 +95,8 @@ QVariant Node::itemChange(GraphicsItemChange change, const QVariant &value)
 
 void Node::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
+    QString s = "NODE: [" + QString::fromStdString(category) + "] [" + QString::fromStdString(value) + "]" + "  Number of edges: " + QString::number(edgeList.size());
+    infoLabel->setText(s);
     update();
     QGraphicsItem::mousePressEvent(event);
 }
@@ -102,6 +109,6 @@ void Node::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 
 void Node::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
-    QString s = "NODE: [" + QString::fromStdString(category) + "] [" + QString::fromStdString(value) + "]" + "  Number of edges: " + QString::number(edgeList.size());
-    infoLabel->setText(s);
+    selected = !selected;
+    update();
 }

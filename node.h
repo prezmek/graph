@@ -47,6 +47,7 @@ public:
 private:
     TLayout layout;
     QLabel* infoLabel;
+    bool selected {false};
 };
 
 #endif // NODE_H

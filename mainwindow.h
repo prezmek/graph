@@ -19,12 +19,11 @@ public:
 
 public slots:
     void setEdgeWeightValue(int value);
+    void selectNodesAll();
+    void unselectNodesAll();
 
 private slots:
-    void newFile();
     void open();
-    void save();
-    void print();
     void about();
     void aboutQt();
 
@@ -43,10 +42,7 @@ private:
     QMenu *fileMenu;
     QMenu *helpMenu;
     QActionGroup *alignmentGroup;
-    QAction *newAct;
     QAction *openAct;
-    QAction *saveAct;
-    QAction *printAct;
     QAction *exitAct;
     QAction *aboutAct;
     QAction *aboutQtAct;
