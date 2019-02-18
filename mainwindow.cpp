@@ -1,3 +1,5 @@
+
+#include <iostream>
 #include "math.h"
 #include <QtWidgets>
 
@@ -5,33 +7,127 @@
 #include "graphwidget.h"
 #include "params.h"
 
+
+QWidget* MainWindow::CreateControlsLayout()
+{
+    QGroupBox* controlsGroup = new QGroupBox("Layout");
+    QLabel* layoutLabel = new QLabel(tr("Select layout"));
+
+    QComboBox *combo = new QComboBox;
+    combo->addItem(tr("square"));
+    combo->addItem(tr("categories/columns"));
+
+    QGridLayout* controlsLayout = new QGridLayout;
+    controlsLayout->addWidget(layoutLabel, 0, 0);
+    controlsLayout->addWidget(combo, 0, 1);
+    controlsGroup->setLayout(controlsLayout);
+
+    return controlsGroup;
+}
+
+QWidget* MainWindow::CreateControlsEdges()
+{
+    QGroupBox* controlsGroup = new QGroupBox("Edges");
+
+    // Items
+
+    QLabel* weightLabel = new QLabel(tr("Weight:"));
+
+    QSpinBox* weightSpinBox = new QSpinBox;
+    weightSpinBox->setRange(-20, 20);
+    weightSpinBox->setSingleStep(1);
+
+    QSlider* slider = new QSlider(Qt::Orientation::Horizontal);
+    slider->setFocusPolicy(Qt::StrongFocus);
+    slider->setTickPosition(QSlider::TicksBothSides);
+    slider->setRange(-20, 20);
+    slider->setSingleStep(1);
+    slider->setTickInterval(5);
+
+    // Connect Items
+
+    connect(slider, SIGNAL(valueChanged(int)), weightSpinBox, SLOT(setValue(int)));
+    connect(weightSpinBox, SIGNAL(valueChanged(int)), slider, SLOT(setValue(int)));
+
+    // Layout
+
+    QGridLayout* controlsLayout = new QGridLayout;
+    controlsLayout->addWidget(weightLabel, 0, 0);
+    controlsLayout->addWidget(weightSpinBox, 0, 1);
+    controlsLayout->addWidget(slider, 0, 2);
+
+    controlsGroup->setLayout(controlsLayout);
+
+    return controlsGroup;
+}
+
+QWidget* MainWindow::CreateControlsNodes()
+{
+    return nullptr;
+}
+
+
+QWidget* MainWindow::CreateControlsWidget()
+{
+    QWidget* widget = new QWidget;
+
+    QHBoxLayout* layout = new QHBoxLayout;
+    widget->setLayout(layout);
+
+    layout->addWidget(CreateControlsLayout());
+    layout->addWidget(CreateControlsEdges());
+
+    return widget;
+}
+
 MainWindow::MainWindow(char* filename)
 {
-    QWidget *widget = new QWidget;
+    // Create main widget
+
+    QWidget* widget = new QWidget;
     setCentralWidget(widget);
 
+    // Layout widgets vertically
+
+    QVBoxLayout* layout = new QVBoxLayout;
+    widget->setLayout(layout);
+
+    // Create buttons widget
+
+    layout->addWidget(CreateControlsWidget());
+
+    // Create top filter, label, bottom filter
+/*
     QWidget *topFiller = new QWidget;
     topFiller->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
+*/
     infoLabel = new QLabel(tr("<i>Choose a menu option, or right-click to invoke a context menu</i>"));
     infoLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
     infoLabel->setAlignment(Qt::AlignCenter);
-
+/*
     QWidget *bottomFiller = new QWidget;
     bottomFiller->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(5);
     layout->addWidget(topFiller);
     layout->addWidget(infoLabel);
     layout->addWidget(bottomFiller);
-    widget->setLayout(layout);
+*/
+    layout->addWidget(infoLabel);
 
-    GraphWidget *widget1 = new GraphWidget(filename);
-    layout->addWidget(widget1);
+    // Create graph widget
+
+    GraphWidget* graph_widget = new GraphWidget(filename);
+    layout->addWidget(graph_widget);
+
+    // Create actions
 
     createActions();
+
+    // Create MENU
+
     createMenus();
+
+    // Main window
 
     QString message = tr("A context menu is available by right-clicking");
     statusBar()->showMessage(message);
@@ -140,9 +236,7 @@ void MainWindow::setParagraphSpacing()
 void MainWindow::about()
 {
     infoLabel->setText(tr("Invoked <b>Help|About</b>"));
-    QMessageBox::about(this, tr("About Menu"),
-            tr("The <b>Menu</b> example shows how to create "
-               "menu-bar menus and context menus."));
+    QMessageBox::about(this, tr("GRAPH"), tr("<b>GRAPH</b> by Przemek Pazio"));
 }
 
 void MainWindow::aboutQt()

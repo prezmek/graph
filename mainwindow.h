@@ -45,6 +45,11 @@ private:
     void createActions();
     void createMenus();
 
+    QWidget* CreateControlsLayout();
+    QWidget* CreateControlsEdges();
+    QWidget* CreateControlsNodes();
+    QWidget* CreateControlsWidget();
+
     QMenu *fileMenu;
     QMenu *editMenu;
     QMenu *formatMenu;
