@@ -28,7 +28,8 @@ SOURCES += \
     edge.cpp \
     graphwidget.cpp \
     soddata.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    params.cpp
 
 HEADERS += \
     node.h \

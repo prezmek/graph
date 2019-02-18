@@ -6,9 +6,11 @@
 #include "edge.h"
 #include "node.h"
 
-Edge::Edge(Node *sourceNode, Node *destNode, int weight)
+Edge::Edge(Node *sourceNode, Node *destNode, Params* params, QLabel* infoLabel, int weight)
     : arrowSize(10)
+    , infoLabel(infoLabel)
     , weight(weight <= 0 ? 1 : weight)
+    , params(params)
 {
     setAcceptedMouseButtons(0);
     source = sourceNode;
@@ -66,12 +68,20 @@ void Edge::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
     if(!source || !dest)
         return;
 
+    if(params->edge_weight >= 0) {
+        if((21 - params->edge_weight) < weight)
+            return;
+    } else {
+        if(weight < abs(params->edge_weight))
+            return;
+    }
+
     QLineF line(sourcePoint, destPoint);
     if(qFuzzyCompare(line.length(), qreal(0.)))
         return;
 
     // Draw the line itself
-    int w = weight * 11 + 20;
+    int w = weight * 9;
     painter->setPen(QPen(QBrush(QColor(w, w, w)), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     //painter->setPen(QPen(Qt::black, 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     painter->drawLine(line);
@@ -93,4 +103,12 @@ void Edge::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
     painter->drawPolygon(QPolygonF() << line.p1() << sourceArrowP1 << sourceArrowP2);
     painter->drawPolygon(QPolygonF() << line.p2() << destArrowP1 << destArrowP2);
 */
+}
+
+void Edge::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+    QString s = "EDGE: [" + QString::fromStdString(source->category) + "] [" + QString::fromStdString(source->value) + "]" +
+            " [" + QString::fromStdString(dest->category) + "] -> [" + QString::fromStdString(dest->value) + "]" +
+            "  Weight: " + QString::number(weight);
+    infoLabel->setText(s);
 }

@@ -1,4 +1,6 @@
 
+#include <iostream>
+
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>
@@ -9,11 +11,12 @@
 #include "graphwidget.h"
 #include "params.h"
 
-Node::Node(GraphWidget *graphWidget, std::string category, std::string value, TLayout layout)
+Node::Node(GraphWidget *graphWidget, std::string category, std::string value, TLayout layout, QLabel* infoLabel)
     : graph(graphWidget)
     , category(category)
     , value(value)
     , layout(layout)
+    , infoLabel(infoLabel)
 {
     setFlag(ItemIsMovable);
     setFlag(ItemSendsGeometryChanges);
@@ -95,4 +98,10 @@ void Node::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     update();
     QGraphicsItem::mouseReleaseEvent(event);
+}
+
+void Node::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+    QString s = "NODE: [" + QString::fromStdString(category) + "] [" + QString::fromStdString(value) + "]" + "  Number of edges: " + QString::number(edgeList.size());
+    infoLabel->setText(s);
 }

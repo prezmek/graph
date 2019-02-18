@@ -34,7 +34,10 @@ static void GetPointsOnCircle(int r, int no, int xp, int yp, std::vector<int>& x
 }
 void GraphWidget::SetItemsLayout(TLayout layout)
 {
+    // calculate
+
     if(layout == TLayout::CATEGORIES) {
+        params->layout = layout;
 
         for(auto& i : items()) {
             i->hide();
@@ -84,7 +87,9 @@ void GraphWidget::SetItemsLayout(TLayout layout)
         for(auto& it : items()) {
             it->show();
         }
-    } else {
+    } else if (layout == TLayout::SQUARE) {
+        params->layout = layout;
+
         x_square = NODE_minx;
         y_square = NODE_miny;
         for(auto& it : items()) {
@@ -97,11 +102,21 @@ void GraphWidget::SetItemsLayout(TLayout layout)
         for(auto& it : items()) {
             it->show();
         }
+    } else {
+
+        for(auto& it : items()) {
+            it->update();
+        }
+
     }
+
 }
 
-GraphWidget::GraphWidget(char* filename, QWidget *parent)
-    : QGraphicsView(parent), timerId(0)
+GraphWidget::GraphWidget(char* filename, Params* params, QLabel* infoLabel, QWidget *parent)
+    : QGraphicsView(parent)
+    , timerId(0)
+    , params(params)
+    , infoLabel(infoLabel)
 {
     // Read data from file
 
@@ -125,17 +140,17 @@ GraphWidget::GraphWidget(char* filename, QWidget *parent)
 
     std::vector<Node*> nodes;
     for(auto sodn : soddata.GetNodes()) {
-        Node* n = new Node(this, sodn.category, sodn.value, TLayout::SQUARE);
+        Node* n = new Node(this, sodn.category, sodn.value, TLayout::SQUARE, infoLabel);
         nodes.push_back(n);
         scene->addItem(n);
     }
 
-    SetItemsLayout(TLayout::SQUARE);
+    SetItemsLayout(params->layout);
 
     for(auto e : soddata.GetEdges()) {
         Node* n1 = nodes[e.l];
         Node* n2 = nodes[e.r];
-        scene->addItem(new Edge(n1, n2, e.w));
+        scene->addItem(new Edge(n1, n2, params, infoLabel, e.w));
     }
 }
 
@@ -153,6 +168,9 @@ void GraphWidget::keyPressEvent(QKeyEvent *event)
         break;
     case Qt::Key_Minus:
         zoomOut();
+        break;
+    case Qt::Key_0:
+        SetItemsLayout(TLayout::REPAINT);
         break;
     case Qt::Key_1:
         SetItemsLayout(TLayout::SQUARE);

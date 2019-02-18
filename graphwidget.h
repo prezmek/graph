@@ -2,6 +2,7 @@
 #define GRAPHWIDGET_H
 
 #include <QGraphicsView>
+#include <QLabel>
 #include "soddata.h"
 #include "params.h"
 
@@ -12,7 +13,7 @@ class GraphWidget : public QGraphicsView
     Q_OBJECT
 
 public:
-    GraphWidget(char* filename, QWidget *parent = 0);
+    GraphWidget(char* filename, Params* params, QLabel *infoLabel, QWidget *parent = 0);
 
     void itemMoved();
 
@@ -31,9 +32,11 @@ protected:
 
 private:
     int timerId;
+    Params* params;
+    QLabel *infoLabel;
+
     SodData soddata;
     void SetItemsLayout(TLayout dm);
-
 };
 
 #endif // GRAPHWIDGET_H

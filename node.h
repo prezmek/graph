@@ -3,6 +3,8 @@
 
 #include <QGraphicsItem>
 #include <QList>
+#include <QLabel>
+
 #include "params.h"
 
 class Edge;
@@ -14,7 +16,7 @@ QT_END_NAMESPACE
 class Node : public QGraphicsItem
 {
 public:
-    Node(GraphWidget *graphWidget, std::string category, std::string value, TLayout layout);
+    Node(GraphWidget *graphWidget, std::string category, std::string value, TLayout layout, QLabel* infoLabel);
 
     void addEdge(Edge *edge);
     QList<Edge *> edges() const;
@@ -31,15 +33,20 @@ protected:
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
 
 private:
     QList<Edge *> edgeList;
     QPointF newPos;
     GraphWidget *graph;
 
+public:
     std::string category;
     std::string value;
+
+private:
     TLayout layout;
+    QLabel* infoLabel;
 };
 
 #endif // NODE_H

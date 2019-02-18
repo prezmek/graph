@@ -48,6 +48,7 @@ QWidget* MainWindow::CreateControlsEdges()
 
     connect(slider, SIGNAL(valueChanged(int)), weightSpinBox, SLOT(setValue(int)));
     connect(weightSpinBox, SIGNAL(valueChanged(int)), slider, SLOT(setValue(int)));
+    connect(slider, SIGNAL(valueChanged(int)), this, SLOT(setEdgeWeightValue(int)));
 
     // Layout
 
@@ -63,7 +64,38 @@ QWidget* MainWindow::CreateControlsEdges()
 
 QWidget* MainWindow::CreateControlsNodes()
 {
-    return nullptr;
+    QGroupBox* controlsGroup = new QGroupBox("Nodes");
+
+    // Items
+
+    QLabel* weightLabel = new QLabel(tr("No of edges:"));
+
+    QSpinBox* edgesSpinBox = new QSpinBox;
+    edgesSpinBox->setRange(1, 100);
+    edgesSpinBox->setSingleStep(1);
+
+    QSlider* slider = new QSlider(Qt::Orientation::Horizontal);
+    slider->setFocusPolicy(Qt::StrongFocus);
+    slider->setTickPosition(QSlider::TicksBothSides);
+    slider->setRange(1, 20);
+    slider->setSingleStep(1);
+    slider->setTickInterval(1);
+
+    // Connect Items
+
+    connect(slider, SIGNAL(valueChanged(int)), edgesSpinBox, SLOT(setValue(int)));
+    connect(edgesSpinBox, SIGNAL(valueChanged(int)), slider, SLOT(setValue(int)));
+
+    // Layout
+
+    QGridLayout* controlsLayout = new QGridLayout;
+    controlsLayout->addWidget(weightLabel, 0, 0);
+    controlsLayout->addWidget(edgesSpinBox, 0, 1);
+    controlsLayout->addWidget(slider, 0, 2);
+
+    controlsGroup->setLayout(controlsLayout);
+
+    return controlsGroup;
 }
 
 
@@ -76,6 +108,7 @@ QWidget* MainWindow::CreateControlsWidget()
 
     layout->addWidget(CreateControlsLayout());
     layout->addWidget(CreateControlsEdges());
+    layout->addWidget(CreateControlsNodes());
 
     return widget;
 }
@@ -96,27 +129,16 @@ MainWindow::MainWindow(char* filename)
 
     layout->addWidget(CreateControlsWidget());
 
-    // Create top filter, label, bottom filter
-/*
-    QWidget *topFiller = new QWidget;
-    topFiller->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-*/
-    infoLabel = new QLabel(tr("<i>Choose a menu option, or right-click to invoke a context menu</i>"));
+    // Create info label
+
+    infoLabel = new QLabel(tr("<i>Double click on node to see its parameters</i>"));
     infoLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
     infoLabel->setAlignment(Qt::AlignCenter);
-/*
-    QWidget *bottomFiller = new QWidget;
-    bottomFiller->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    layout->setMargin(5);
-    layout->addWidget(topFiller);
-    layout->addWidget(infoLabel);
-    layout->addWidget(bottomFiller);
-*/
     layout->addWidget(infoLabel);
 
     // Create graph widget
 
-    GraphWidget* graph_widget = new GraphWidget(filename);
+    graph_widget = new GraphWidget(filename, &params, infoLabel);
     layout->addWidget(graph_widget);
 
     // Create actions
@@ -137,16 +159,12 @@ MainWindow::MainWindow(char* filename)
     resize(WIN_SIZE_X, WIN_SIZE_Y);
 }
 
-#ifndef QT_NO_CONTEXTMENU
-void MainWindow::contextMenuEvent(QContextMenuEvent *event)
+void MainWindow::setEdgeWeightValue(int value)
 {
-    QMenu menu(this);
-    menu.addAction(cutAct);
-    menu.addAction(copyAct);
-    menu.addAction(pasteAct);
-    menu.exec(event->globalPos());
+    params.edge_weight = value;
+    QKeyEvent event(QEvent::KeyPress, Qt::Key_0, Qt::NoModifier);
+    QApplication::sendEvent(graph_widget, &event);
 }
-#endif // QT_NO_CONTEXTMENU
 
 void MainWindow::newFile()
 {
@@ -168,71 +186,6 @@ void MainWindow::print()
     infoLabel->setText(tr("Invoked <b>File|Print</b>"));
 }
 
-void MainWindow::undo()
-{
-    infoLabel->setText(tr("Invoked <b>Edit|Undo</b>"));
-}
-
-void MainWindow::redo()
-{
-    infoLabel->setText(tr("Invoked <b>Edit|Redo</b>"));
-}
-
-void MainWindow::cut()
-{
-    infoLabel->setText(tr("Invoked <b>Edit|Cut</b>"));
-}
-
-void MainWindow::copy()
-{
-    infoLabel->setText(tr("Invoked <b>Edit|Copy</b>"));
-}
-
-void MainWindow::paste()
-{
-    infoLabel->setText(tr("Invoked <b>Edit|Paste</b>"));
-}
-
-void MainWindow::bold()
-{
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Bold</b>"));
-}
-
-void MainWindow::italic()
-{
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Italic</b>"));
-}
-
-void MainWindow::leftAlign()
-{
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Left Align</b>"));
-}
-
-void MainWindow::rightAlign()
-{
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Right Align</b>"));
-}
-
-void MainWindow::justify()
-{
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Justify</b>"));
-}
-
-void MainWindow::center()
-{
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Center</b>"));
-}
-
-void MainWindow::setLineSpacing()
-{
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Set Line Spacing</b>"));
-}
-
-void MainWindow::setParagraphSpacing()
-{
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Set Paragraph Spacing</b>"));
-}
-
 void MainWindow::about()
 {
     infoLabel->setText(tr("Invoked <b>Help|About</b>"));
@@ -246,6 +199,8 @@ void MainWindow::aboutQt()
 
 void MainWindow::createActions()
 {
+    // MENU actions
+
     newAct = new QAction(tr("&New"), this);
     newAct->setShortcuts(QKeySequence::New);
     newAct->setStatusTip(tr("Create a new file"));
@@ -271,64 +226,6 @@ void MainWindow::createActions()
     exitAct->setStatusTip(tr("Exit the application"));
     connect(exitAct, &QAction::triggered, this, &QWidget::close);
 
-    undoAct = new QAction(tr("&Undo"), this);
-    undoAct->setShortcuts(QKeySequence::Undo);
-    undoAct->setStatusTip(tr("Undo the last operation"));
-    connect(undoAct, &QAction::triggered, this, &MainWindow::undo);
-
-    redoAct = new QAction(tr("&Redo"), this);
-    redoAct->setShortcuts(QKeySequence::Redo);
-    redoAct->setStatusTip(tr("Redo the last operation"));
-    connect(redoAct, &QAction::triggered, this, &MainWindow::redo);
-
-    cutAct = new QAction(tr("Cu&t"), this);
-    cutAct->setShortcuts(QKeySequence::Cut);
-    cutAct->setStatusTip(tr("Cut the current selection's contents to the "
-                            "clipboard"));
-    connect(cutAct, &QAction::triggered, this, &MainWindow::cut);
-
-    copyAct = new QAction(tr("&Copy"), this);
-    copyAct->setShortcuts(QKeySequence::Copy);
-    copyAct->setStatusTip(tr("Copy the current selection's contents to the "
-                             "clipboard"));
-    connect(copyAct, &QAction::triggered, this, &MainWindow::copy);
-
-    pasteAct = new QAction(tr("&Paste"), this);
-    pasteAct->setShortcuts(QKeySequence::Paste);
-    pasteAct->setStatusTip(tr("Paste the clipboard's contents into the current "
-                              "selection"));
-    connect(pasteAct, &QAction::triggered, this, &MainWindow::paste);
-
-    boldAct = new QAction(tr("&Bold"), this);
-    boldAct->setCheckable(true);
-    boldAct->setShortcut(QKeySequence::Bold);
-    boldAct->setStatusTip(tr("Make the text bold"));
-    connect(boldAct, &QAction::triggered, this, &MainWindow::bold);
-
-    QFont boldFont = boldAct->font();
-    boldFont.setBold(true);
-    boldAct->setFont(boldFont);
-
-    italicAct = new QAction(tr("&Italic"), this);
-    italicAct->setCheckable(true);
-    italicAct->setShortcut(QKeySequence::Italic);
-    italicAct->setStatusTip(tr("Make the text italic"));
-    connect(italicAct, &QAction::triggered, this, &MainWindow::italic);
-
-    QFont italicFont = italicAct->font();
-    italicFont.setItalic(true);
-    italicAct->setFont(italicFont);
-
-    setLineSpacingAct = new QAction(tr("Set &Line Spacing..."), this);
-    setLineSpacingAct->setStatusTip(tr("Change the gap between the lines of a "
-                                       "paragraph"));
-    connect(setLineSpacingAct, &QAction::triggered, this, &MainWindow::setLineSpacing);
-
-    setParagraphSpacingAct = new QAction(tr("Set &Paragraph Spacing..."), this);
-    setParagraphSpacingAct->setStatusTip(tr("Change the gap between paragraphs"));
-    connect(setParagraphSpacingAct, &QAction::triggered,
-            this, &MainWindow::setParagraphSpacing);
-
     aboutAct = new QAction(tr("&About"), this);
     aboutAct->setStatusTip(tr("Show the application's About box"));
     connect(aboutAct, &QAction::triggered, this, &MainWindow::about);
@@ -338,36 +235,7 @@ void MainWindow::createActions()
     connect(aboutQtAct, &QAction::triggered, qApp, &QApplication::aboutQt);
     connect(aboutQtAct, &QAction::triggered, this, &MainWindow::aboutQt);
 
-    leftAlignAct = new QAction(tr("&Left Align"), this);
-    leftAlignAct->setCheckable(true);
-    leftAlignAct->setShortcut(tr("Ctrl+L"));
-    leftAlignAct->setStatusTip(tr("Left align the selected text"));
-    connect(leftAlignAct, &QAction::triggered, this, &MainWindow::leftAlign);
-
-    rightAlignAct = new QAction(tr("&Right Align"), this);
-    rightAlignAct->setCheckable(true);
-    rightAlignAct->setShortcut(tr("Ctrl+R"));
-    rightAlignAct->setStatusTip(tr("Right align the selected text"));
-    connect(rightAlignAct, &QAction::triggered, this, &MainWindow::rightAlign);
-
-    justifyAct = new QAction(tr("&Justify"), this);
-    justifyAct->setCheckable(true);
-    justifyAct->setShortcut(tr("Ctrl+J"));
-    justifyAct->setStatusTip(tr("Justify the selected text"));
-    connect(justifyAct, &QAction::triggered, this, &MainWindow::justify);
-
-    centerAct = new QAction(tr("&Center"), this);
-    centerAct->setCheckable(true);
-    centerAct->setShortcut(tr("Ctrl+E"));
-    centerAct->setStatusTip(tr("Center the selected text"));
-    connect(centerAct, &QAction::triggered, this, &MainWindow::center);
-
-    alignmentGroup = new QActionGroup(this);
-    alignmentGroup->addAction(leftAlignAct);
-    alignmentGroup->addAction(rightAlignAct);
-    alignmentGroup->addAction(justifyAct);
-    alignmentGroup->addAction(centerAct);
-    leftAlignAct->setChecked(true);
+    // Widgets actions
 }
 
 void MainWindow::createMenus()
@@ -380,28 +248,7 @@ void MainWindow::createMenus()
     fileMenu->addSeparator();
     fileMenu->addAction(exitAct);
 
-    editMenu = menuBar()->addMenu(tr("&Edit"));
-    editMenu->addAction(undoAct);
-    editMenu->addAction(redoAct);
-    editMenu->addSeparator();
-    editMenu->addAction(cutAct);
-    editMenu->addAction(copyAct);
-    editMenu->addAction(pasteAct);
-    editMenu->addSeparator();
-
     helpMenu = menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(aboutAct);
     helpMenu->addAction(aboutQtAct);
-
-    formatMenu = editMenu->addMenu(tr("&Format"));
-    formatMenu->addAction(boldAct);
-    formatMenu->addAction(italicAct);
-    formatMenu->addSeparator()->setText(tr("Alignment"));
-    formatMenu->addAction(leftAlignAct);
-    formatMenu->addAction(rightAlignAct);
-    formatMenu->addAction(justifyAct);
-    formatMenu->addAction(centerAct);
-    formatMenu->addSeparator();
-    formatMenu->addAction(setLineSpacingAct);
-    formatMenu->addAction(setParagraphSpacingAct);
 }

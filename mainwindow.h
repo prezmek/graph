@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "graphwidget.h"
+#include "params.h"
 
 class QAction;
 class QActionGroup;
@@ -15,33 +17,21 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(char* filename);
 
-protected:
-#ifndef QT_NO_CONTEXTMENU
-    void contextMenuEvent(QContextMenuEvent *event) override;
-#endif // QT_NO_CONTEXTMENU
+public slots:
+    void setEdgeWeightValue(int value);
 
 private slots:
     void newFile();
     void open();
     void save();
     void print();
-    void undo();
-    void redo();
-    void cut();
-    void copy();
-    void paste();
-    void bold();
-    void italic();
-    void leftAlign();
-    void rightAlign();
-    void justify();
-    void center();
-    void setLineSpacing();
-    void setParagraphSpacing();
     void about();
     void aboutQt();
 
 private:
+    QLabel *infoLabel;
+    GraphWidget* graph_widget;
+
     void createActions();
     void createMenus();
 
@@ -51,8 +41,6 @@ private:
     QWidget* CreateControlsWidget();
 
     QMenu *fileMenu;
-    QMenu *editMenu;
-    QMenu *formatMenu;
     QMenu *helpMenu;
     QActionGroup *alignmentGroup;
     QAction *newAct;
@@ -60,22 +48,10 @@ private:
     QAction *saveAct;
     QAction *printAct;
     QAction *exitAct;
-    QAction *undoAct;
-    QAction *redoAct;
-    QAction *cutAct;
-    QAction *copyAct;
-    QAction *pasteAct;
-    QAction *boldAct;
-    QAction *italicAct;
-    QAction *leftAlignAct;
-    QAction *rightAlignAct;
-    QAction *justifyAct;
-    QAction *centerAct;
-    QAction *setLineSpacingAct;
-    QAction *setParagraphSpacingAct;
     QAction *aboutAct;
     QAction *aboutQtAct;
-    QLabel *infoLabel;
+
+    Params params;
 };
 
 #endif
