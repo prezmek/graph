@@ -7,6 +7,10 @@ Qt::Key Params::GetKeyFromLayout(TLayout l)
         return Qt::Key_1;
     else if(l == CATEGORIES)
         return Qt::Key_2;
+    else if(l == CIRCLE)
+        return Qt::Key_3;
+    else if(l == COORDINATES)
+        return Qt::Key_4;
 }
 
 bool Params::IsBelowWeight(int weight)

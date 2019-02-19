@@ -117,8 +117,42 @@ void GraphWidget::SetItemsLayout(TLayout layout)
         for(auto& it : items()) {
             it->show();
         }
-    } else {
 
+    } else if (layout == TLayout::CIRCLE) {
+        params->layout = layout;
+
+        for(auto& it : items()) {
+            it->hide();
+        }
+
+        std::vector<int> x, y;
+        GetPointsOnCircle(330, soddata->GetNodes().size(), 0, 0, x, y);
+        for(int i = 0; i < soddata->GetNodes().size(); i++) {
+            items()[i]->setPos(x[i], y[i]);
+        }
+        for(auto& it : items()) {
+            it->show();
+        }
+
+    } else if (layout == TLayout::COORDINATES) {
+        params->layout = layout;
+
+        for(auto& it : items()) {
+            it->hide();
+        }
+
+        for(size_t i = 0; i < soddata->GetNodes().size(); i++) {
+            int x = soddata->GetNodes()[i].x;
+            int y = soddata->GetNodes()[i].y;
+            items()[i]->setPos(x, y);
+        }
+
+        for(auto& it : items()) {
+            it->show();
+        }
+
+    } else {
+        // REPAINT
         for(auto& it : items()) {
             it->update();
         }
@@ -193,6 +227,12 @@ void GraphWidget::keyPressEvent(QKeyEvent *event)
         break;
     case Qt::Key_2:
         SetItemsLayout(TLayout::CATEGORIES);
+        break;
+    case Qt::Key_3:
+        SetItemsLayout(TLayout::CIRCLE);
+        break;
+    case Qt::Key_4:
+        SetItemsLayout(TLayout::COORDINATES);
         break;
     default:
         QGraphicsView::keyPressEvent(event);

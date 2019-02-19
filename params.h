@@ -1,6 +1,7 @@
 #ifndef PARAMS_H
 #define PARAMS_H
 
+#include <string>
 #include <qnamespace.h>
 #include "math.h"
 
@@ -16,9 +17,12 @@ const int WIN_SIZE_X = (int)(1.5 * (abs(NODE_minx) + NODE_maxx));
 const int WIN_SIZE_Y = (int)(1.2 * (abs(NODE_miny) + NODE_maxy));
 
 typedef enum {
+    REPAINT = 0,
     SQUARE = 1,
     CATEGORIES = 2,
-    REPAINT = 100
+    CIRCLE = 3,
+    COORDINATES = 4,
+    LAST
 } TLayout;
 
 class Params
@@ -31,6 +35,7 @@ public:
     bool only_selected_mode {false};
 
     Qt::Key GetKeyFromLayout(TLayout l);
+    std::string GetLayoutName();
 
     bool IsBelowWeight(int weight);
 };

@@ -17,24 +17,29 @@ public:
     };
 
     struct Node {
-        Node(std::string name, std::string category, std::string value)
+        Node(std::string name, std::string category, std::string value, int x = 0, int y = 0)
             : name(name)
             , category(category)
             , value(value)
+            , x(x)
+            , y(y)
         {}
         std::string name;
         std::string category;
         std::string value;
+        int x {0};
+        int y {0};
     };
 
     std::vector<Node>& GetNodes() { return nodes; }
     std::vector<Edge>& GetEdges() { return edges; }
 
+    bool has_coordinates {false};
 private:
     std::vector<Edge> edges;
     std::vector<Node> nodes;
 
-    int AddNode(std::string category, std::string value);
+    int AddNode(std::string category, std::string value, double x = 0, double y = 0);
 };
 
 #endif // DATA_H
