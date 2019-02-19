@@ -58,6 +58,9 @@ void Node::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     if(params->only_selected_mode && !selected)
         return;
 
+    if(!params->NoOfEdgesOK(edgeList.size()))
+        return;
+
     bool if_any_visible_edge = false;
     for(int i = 0; i < edgeList.size(); i++) {
         if(!params->IsBelowWeight(edgeList[i]->weight)) {

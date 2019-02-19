@@ -20,9 +20,11 @@ public:
 
 public slots:
     void setEdgeWeightValue(int value);
+    void setNoOfEdgesValue(int value);
     void selectNodesAll();
     void unselectNodesAll();
     void onlyselectedNodes();
+    void layoutComboChanged(int i);
 
 private slots:
     void open();

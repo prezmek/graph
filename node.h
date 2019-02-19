@@ -35,8 +35,10 @@ protected:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
 
-private:
+public:
     QList<Edge *> edgeList;
+
+private:
     QPointF newPos;
     GraphWidget *graph;
 

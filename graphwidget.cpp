@@ -223,10 +223,10 @@ void GraphWidget::keyPressEvent(QKeyEvent *event)
         SetItemsLayout(TLayout::REPAINT);
         break;
     case Qt::Key_1:
-        SetItemsLayout(TLayout::SQUARE);
+        SetItemsLayout(TLayout::CATEGORIES);
         break;
     case Qt::Key_2:
-        SetItemsLayout(TLayout::CATEGORIES);
+        SetItemsLayout(TLayout::SQUARE);
         break;
     case Qt::Key_3:
         SetItemsLayout(TLayout::CIRCLE);

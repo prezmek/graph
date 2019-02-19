@@ -14,8 +14,10 @@ QWidget* MainWindow::CreateControlsLayout()
     QLabel* layoutLabel = new QLabel(tr("Select layout"));
 
     QComboBox *combo = new QComboBox;
-    combo->addItem(tr("square"));
-    combo->addItem(tr("categories/columns"));
+    for(int l = TLayout::CATEGORIES; l < TLayout::LAST; l++)
+        combo->addItem(params.GetLayoutName((TLayout)l));
+
+    connect(combo, SIGNAL(currentIndexChanged(int)), this, SLOT(layoutComboChanged(int)));
 
     QGridLayout* controlsLayout = new QGridLayout;
     controlsLayout->addWidget(layoutLabel, 0, 0);
@@ -71,15 +73,17 @@ QWidget* MainWindow::CreateControlsNodes()
     QLabel* weightLabel = new QLabel(tr("No of edges:"));
 
     QSpinBox* edgesSpinBox = new QSpinBox;
-    edgesSpinBox->setRange(1, 100);
+    edgesSpinBox->setRange(0, 200);
     edgesSpinBox->setSingleStep(1);
+    edgesSpinBox->setValue(0);
 
     QSlider* slider = new QSlider(Qt::Orientation::Horizontal);
     slider->setFocusPolicy(Qt::StrongFocus);
     slider->setTickPosition(QSlider::TicksBothSides);
-    slider->setRange(1, 20);
+    slider->setRange(0, 200);
     slider->setSingleStep(1);
-    slider->setTickInterval(1);
+    slider->setTickInterval(10);
+    slider->setValue(0);
 
     QPushButton* but_select = new QPushButton("Select All");
     QPushButton* but_unselect = new QPushButton("UnSelect All");
@@ -89,6 +93,8 @@ QWidget* MainWindow::CreateControlsNodes()
 
     connect(slider, SIGNAL(valueChanged(int)), edgesSpinBox, SLOT(setValue(int)));
     connect(edgesSpinBox, SIGNAL(valueChanged(int)), slider, SLOT(setValue(int)));
+
+    connect(slider, SIGNAL(valueChanged(int)), this, SLOT(setNoOfEdgesValue(int)));
 
     connect(but_select, SIGNAL (released()), this, SLOT (selectNodesAll()));
     connect(but_unselect, SIGNAL (released()), this, SLOT (unselectNodesAll()));
@@ -182,6 +188,12 @@ void MainWindow::setEdgeWeightValue(int value)
     RefreshGraphWidget();
 }
 
+void MainWindow::setNoOfEdgesValue(int value)
+{
+    params.no_of_edges = value;
+    RefreshGraphWidget();
+}
+
 void MainWindow::selectNodesAll()
 {
     for(int i = 0; i < soddata.GetNodes().size(); i++) {
@@ -208,6 +220,32 @@ void MainWindow::onlyselectedNodes()
     else
         button_onlyselected->setText("Show selected nodes only");
     RefreshGraphWidget();
+}
+
+void MainWindow::layoutComboChanged(int i)
+{
+    switch(i) {
+    case 0: {
+        QKeyEvent event(QEvent::KeyPress, Qt::Key_1, Qt::NoModifier);
+        QApplication::sendEvent(graph_widget, &event);
+        break;
+    }
+    case 1: {
+        QKeyEvent event(QEvent::KeyPress, Qt::Key_2, Qt::NoModifier);
+        QApplication::sendEvent(graph_widget, &event);
+        break;
+    }
+    case 2: {
+        QKeyEvent event(QEvent::KeyPress, Qt::Key_3, Qt::NoModifier);
+        QApplication::sendEvent(graph_widget, &event);
+        break;
+    }
+    case 3: {
+        QKeyEvent event(QEvent::KeyPress, Qt::Key_4, Qt::NoModifier);
+        QApplication::sendEvent(graph_widget, &event);
+        break;
+    }
+    }
 }
 
 void MainWindow::open()
