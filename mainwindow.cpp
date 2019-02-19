@@ -83,14 +83,16 @@ QWidget* MainWindow::CreateControlsNodes()
 
     QPushButton* but_select = new QPushButton("Select All");
     QPushButton* but_unselect = new QPushButton("UnSelect All");
+    button_onlyselected = new QPushButton("Show selected nodes only");
 
     // Connect Items
 
     connect(slider, SIGNAL(valueChanged(int)), edgesSpinBox, SLOT(setValue(int)));
     connect(edgesSpinBox, SIGNAL(valueChanged(int)), slider, SLOT(setValue(int)));
 
-    connect(but_select, SIGNAL(clicked()), this, SLOT(selectNodesAll()));
-    connect(but_unselect, SIGNAL(clicked()), this, SLOT(unselectNodesAll()));
+    connect(but_select, SIGNAL (released()), this, SLOT (selectNodesAll()));
+    connect(but_unselect, SIGNAL (released()), this, SLOT (unselectNodesAll()));
+    connect(button_onlyselected, SIGNAL (released()), this, SLOT (onlyselectedNodes()));
 
     // Layout
 
@@ -100,6 +102,7 @@ QWidget* MainWindow::CreateControlsNodes()
     controlsLayout->addWidget(slider, 0, 2);
     controlsLayout->addWidget(but_select, 1, 0);
     controlsLayout->addWidget(but_unselect, 1, 1);
+    controlsLayout->addWidget(button_onlyselected, 1, 2);
 
     controlsGroup->setLayout(controlsLayout);
 
@@ -146,7 +149,7 @@ MainWindow::MainWindow(char* filename)
 
     // Create graph widget
 
-    graph_widget = new GraphWidget(filename, &params, infoLabel);
+    graph_widget = new GraphWidget(filename, &params, infoLabel, &soddata);
     layout->addWidget(graph_widget);
 
     // Create actions
@@ -167,21 +170,44 @@ MainWindow::MainWindow(char* filename)
     resize(WIN_SIZE_X, WIN_SIZE_Y);
 }
 
-void MainWindow::setEdgeWeightValue(int value)
+void MainWindow::RefreshGraphWidget()
 {
-    params.edge_weight = value;
     QKeyEvent event(QEvent::KeyPress, Qt::Key_0, Qt::NoModifier);
     QApplication::sendEvent(graph_widget, &event);
 }
 
+void MainWindow::setEdgeWeightValue(int value)
+{
+    params.edge_weight = value;
+    RefreshGraphWidget();
+}
+
 void MainWindow::selectNodesAll()
 {
-    std::cout << "sel" << std::endl;
+    for(int i = 0; i < soddata.GetNodes().size(); i++) {
+        Node* n = (Node*)(graph_widget->items()[i]);
+        n->selected = true;
+    }
+    RefreshGraphWidget();
 }
 
 void MainWindow::unselectNodesAll()
 {
-    std::cout << "unsel" << std::endl;
+    for(int i = 0; i < soddata.GetNodes().size(); i++) {
+        Node* n = (Node*)(graph_widget->items()[i]);
+        n->selected = false;
+    }
+    RefreshGraphWidget();
+}
+
+void MainWindow::onlyselectedNodes()
+{
+    params.only_selected_mode = !params.only_selected_mode;
+    if(params.only_selected_mode)
+        button_onlyselected->setText("Show all nodes");
+    else
+        button_onlyselected->setText("Show selected nodes only");
+    RefreshGraphWidget();
 }
 
 void MainWindow::open()

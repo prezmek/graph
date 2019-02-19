@@ -33,6 +33,8 @@ private:
     qreal arrowSize;
     Params* params;
     QLabel* infoLabel;
+
+public:
     int weight;
 };
 

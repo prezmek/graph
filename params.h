@@ -28,8 +28,11 @@ public:
 
     int edge_weight {0};
     TLayout layout {CATEGORIES};
+    bool only_selected_mode {false};
 
     Qt::Key GetKeyFromLayout(TLayout l);
+
+    bool IsBelowWeight(int weight);
 };
 
 #endif // PARAMS_H

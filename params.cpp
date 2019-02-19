@@ -8,3 +8,15 @@ Qt::Key Params::GetKeyFromLayout(TLayout l)
     else if(l == CATEGORIES)
         return Qt::Key_2;
 }
+
+bool Params::IsBelowWeight(int weight)
+{
+    if(edge_weight >= 0) {
+        if((21 - edge_weight) < weight)
+            return true;
+    } else {
+        if(weight < abs(edge_weight))
+            return true;
+    }
+    return false;
+}

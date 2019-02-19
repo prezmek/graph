@@ -24,12 +24,27 @@ static std::pair<int, int> GetNextPos()
     return p;
 }
 
-static void GetPointsOnCircle(int r, int no, int xp, int yp, std::vector<int>& x, std::vector<int>& y)
+static void GetPointsOnCircle(int r, int no, int xp, int yp, std::vector<int>& x, std::vector<int>& y, int r_minus = 0)
 {
-    for(int i = 0; i < no; i++) {
-        double t = i * 2 * 3.14159 / no;
-        x.push_back(r * cos(t) + xp);
-        y.push_back(r * sin(t) + yp);
+    if(r_minus == 0) {
+        for(int i = 0; i < no; i++) {
+            double t = i * 2 * 3.14159 / no;
+            x.push_back(r * cos(t) + xp);
+            y.push_back(r * sin(t) + yp);
+        }
+    } else {
+        bool flip = false;
+        for(int i = 0; i < no; i++) {
+            double t = i * 2 * 3.14159 / no;
+            if(flip) {
+                x.push_back((r - r_minus) * cos(t) + xp);
+                y.push_back((r - r_minus) * sin(t) + yp);
+            } else {
+                x.push_back(r * cos(t) + xp);
+                y.push_back(r * sin(t) + yp);
+            }
+            flip = !flip;
+        }
     }
 }
 void GraphWidget::SetItemsLayout(TLayout layout)
@@ -51,8 +66,8 @@ void GraphWidget::SetItemsLayout(TLayout layout)
 
         std::map<std::string, std::vector<Item>> categories;
 
-        for(int i = 0; i < soddata.GetNodes().size(); i++) {
-            auto& n = soddata.GetNodes()[i];
+        for(int i = 0; i < soddata->GetNodes().size(); i++) {
+            auto& n = soddata->GetNodes()[i];
             Item it;
             it.i = i;
             it.value = n.value;
@@ -77,7 +92,7 @@ void GraphWidget::SetItemsLayout(TLayout layout)
             int no_nodes = m.second.size();
             std::vector<int> xx;
             std::vector<int> yy;
-            GetPointsOnCircle(80, no_nodes, x[c], y[c], xx, yy);
+            GetPointsOnCircle(80, no_nodes, x[c], y[c], xx, yy, 10);
             for(int i = 0; i < no_nodes; i++) {
                 items()[m.second[i].i]->setPos(xx[i], yy[i]);
             }
@@ -95,7 +110,7 @@ void GraphWidget::SetItemsLayout(TLayout layout)
         for(auto& it : items()) {
             it->hide();
         }
-        for(int i = 0; i < soddata.GetNodes().size(); i++) {
+        for(int i = 0; i < soddata->GetNodes().size(); i++) {
             auto p = GetNextPos();
             items()[i]->setPos(p.first, p.second);
         }
@@ -112,15 +127,16 @@ void GraphWidget::SetItemsLayout(TLayout layout)
 
 }
 
-GraphWidget::GraphWidget(char* filename, Params* params, QLabel* infoLabel, QWidget *parent)
+GraphWidget::GraphWidget(char* filename, Params* params, QLabel* infoLabel, SodData* soddata, QWidget *parent)
     : QGraphicsView(parent)
     , timerId(0)
     , params(params)
     , infoLabel(infoLabel)
+    , soddata(soddata)
 {
     // Read data from file
 
-    soddata.ReadFile(filename);
+    soddata->ReadFile(filename);
 
     // create scene:
 
@@ -139,15 +155,15 @@ GraphWidget::GraphWidget(char* filename, Params* params, QLabel* infoLabel, QWid
     // create nodes:
 
     std::vector<Node*> nodes;
-    for(auto sodn : soddata.GetNodes()) {
-        Node* n = new Node(this, sodn.category, sodn.value, TLayout::SQUARE, infoLabel);
+    for(auto sodn : soddata->GetNodes()) {
+        Node* n = new Node(this, sodn.category, sodn.value, TLayout::SQUARE, infoLabel, params);
         nodes.push_back(n);
         scene->addItem(n);
     }
 
     SetItemsLayout(params->layout);
 
-    for(auto e : soddata.GetEdges()) {
+    for(auto e : soddata->GetEdges()) {
         Node* n1 = nodes[e.l];
         Node* n2 = nodes[e.r];
         scene->addItem(new Edge(n1, n2, params, infoLabel, e.w));

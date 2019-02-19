@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPushButton>
 #include "graphwidget.h"
 #include "params.h"
 
@@ -21,6 +22,7 @@ public slots:
     void setEdgeWeightValue(int value);
     void selectNodesAll();
     void unselectNodesAll();
+    void onlyselectedNodes();
 
 private slots:
     void open();
@@ -30,9 +32,12 @@ private slots:
 private:
     QLabel *infoLabel;
     GraphWidget* graph_widget;
+    QPushButton* button_onlyselected;
 
     void createActions();
     void createMenus();
+
+    void RefreshGraphWidget();
 
     QWidget* CreateControlsLayout();
     QWidget* CreateControlsEdges();
@@ -48,6 +53,7 @@ private:
     QAction *aboutQtAct;
 
     Params params;
+    SodData soddata;
 };
 
 #endif

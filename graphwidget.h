@@ -13,7 +13,7 @@ class GraphWidget : public QGraphicsView
     Q_OBJECT
 
 public:
-    GraphWidget(char* filename, Params* params, QLabel *infoLabel, QWidget *parent = 0);
+    GraphWidget(char* filename, Params* params, QLabel *infoLabel, SodData* soddata, QWidget *parent = 0);
 
     void itemMoved();
 
@@ -34,8 +34,8 @@ private:
     int timerId;
     Params* params;
     QLabel *infoLabel;
+    SodData* soddata;
 
-    SodData soddata;
     void SetItemsLayout(TLayout dm);
 };
 

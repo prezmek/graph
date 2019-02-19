@@ -11,12 +11,13 @@
 #include "graphwidget.h"
 #include "params.h"
 
-Node::Node(GraphWidget *graphWidget, std::string category, std::string value, TLayout layout, QLabel* infoLabel)
+Node::Node(GraphWidget *graphWidget, std::string category, std::string value, TLayout layout, QLabel* infoLabel, Params* params)
     : graph(graphWidget)
     , category(category)
     , value(value)
     , layout(layout)
     , infoLabel(infoLabel)
+    , params(params)
 {
     setFlag(ItemIsMovable);
     setFlag(ItemSendsGeometryChanges);
@@ -53,6 +54,19 @@ void Node::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     //painter->setPen(Qt::NoPen);
     //painter->setBrush(Qt::darkGray);
     //painter->drawEllipse(-7, -7, 20, 20);
+
+    if(params->only_selected_mode && !selected)
+        return;
+
+    bool if_any_visible_edge = false;
+    for(int i = 0; i < edgeList.size(); i++) {
+        if(!params->IsBelowWeight(edgeList[i]->weight)) {
+            if_any_visible_edge = true;
+            break;
+        }
+    }
+    if(!if_any_visible_edge)
+        return;
 
     QRadialGradient gradient(-3, -3, 10);
     if(selected) {

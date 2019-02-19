@@ -68,13 +68,12 @@ void Edge::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
     if(!source || !dest)
         return;
 
-    if(params->edge_weight >= 0) {
-        if((21 - params->edge_weight) < weight)
+    if(params->only_selected_mode)
+        if(!source->selected && !dest->selected)
             return;
-    } else {
-        if(weight < abs(params->edge_weight))
-            return;
-    }
+
+    if(params->IsBelowWeight(weight))
+        return;
 
     QLineF line(sourcePoint, destPoint);
     if(qFuzzyCompare(line.length(), qreal(0.)))
