@@ -55,6 +55,9 @@ void Node::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     //painter->setBrush(Qt::darkGray);
     //painter->drawEllipse(-7, -7, 20, 20);
 
+    if(deleted)
+        return;
+
     if(params->only_selected_mode && !selected)
         return;
 

@@ -85,9 +85,10 @@ QWidget* MainWindow::CreateControlsNodes()
     slider->setTickInterval(10);
     slider->setValue(0);
 
-    QPushButton* but_select = new QPushButton("Select All");
-    QPushButton* but_unselect = new QPushButton("UnSelect All");
-    button_onlyselected = new QPushButton("Show selected nodes only");
+    QPushButton* but_select = new QPushButton("SelectAll");
+    QPushButton* but_unselect = new QPushButton("UnSelectAll");
+    button_onlyselected = new QPushButton("ShowSelected");
+    QPushButton* but_deleteSelected = new QPushButton("DeleteSelected");
 
     // Connect Items
 
@@ -99,6 +100,7 @@ QWidget* MainWindow::CreateControlsNodes()
     connect(but_select, SIGNAL (released()), this, SLOT (selectNodesAll()));
     connect(but_unselect, SIGNAL (released()), this, SLOT (unselectNodesAll()));
     connect(button_onlyselected, SIGNAL (released()), this, SLOT (onlyselectedNodes()));
+    connect(but_deleteSelected, SIGNAL (released()), this, SLOT (deleteSelected()));
 
     // Layout
 
@@ -109,6 +111,7 @@ QWidget* MainWindow::CreateControlsNodes()
     controlsLayout->addWidget(but_select, 1, 0);
     controlsLayout->addWidget(but_unselect, 1, 1);
     controlsLayout->addWidget(button_onlyselected, 1, 2);
+    controlsLayout->addWidget(but_deleteSelected, 1, 3);
 
     controlsGroup->setLayout(controlsLayout);
 
@@ -216,9 +219,9 @@ void MainWindow::onlyselectedNodes()
 {
     params.only_selected_mode = !params.only_selected_mode;
     if(params.only_selected_mode)
-        button_onlyselected->setText("Show all nodes");
+        button_onlyselected->setText("ShowAll");
     else
-        button_onlyselected->setText("Show selected nodes only");
+        button_onlyselected->setText("ShowSelected");
     RefreshGraphWidget();
 }
 
@@ -246,6 +249,16 @@ void MainWindow::layoutComboChanged(int i)
         break;
     }
     }
+}
+
+void MainWindow::deleteSelected()
+{
+    for(int i = 0; i < soddata.GetNodes().size(); i++) {
+        Node* n = (Node*)(graph_widget->items()[i]);
+        if(n->selected)
+            n->deleted = true;
+    }
+    RefreshGraphWidget();
 }
 
 void MainWindow::open()

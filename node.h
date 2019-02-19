@@ -46,6 +46,7 @@ public:
     std::string category;
     std::string value;
     bool selected {false};
+    bool deleted {false};
 
 private:
     TLayout layout;

@@ -25,6 +25,7 @@ public slots:
     void unselectNodesAll();
     void onlyselectedNodes();
     void layoutComboChanged(int i);
+    void deleteSelected();
 
 private slots:
     void open();

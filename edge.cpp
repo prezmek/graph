@@ -68,6 +68,9 @@ void Edge::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
     if(!source || !dest)
         return;
 
+    if(source->deleted || dest->deleted)
+        return;
+
     if(!params->NoOfEdgesOK(source->edgeList.size()) && !params->NoOfEdgesOK(dest->edgeList.size()))
         return;
 
