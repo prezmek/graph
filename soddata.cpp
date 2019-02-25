@@ -59,3 +59,22 @@ void SodData::ReadFile(char* filename)
     std::cout << "No of edges: " << edges.size() << std::endl;
 
 }
+
+std::set<SodData::Triple> SodData::CalculateTriples()
+{
+    std::set<Triple> triples;
+    for(auto& e : edges) {
+        if(nodes[e.l].neighs.empty() || nodes[e.r].neighs.empty())
+            continue;
+        std::set<int> l0(nodes[e.l].neighs);
+        std::set<int> l1(nodes[e.r].neighs);
+        std::vector<int> res(1000);
+        std::vector<int>::iterator it = std::set_intersection(l0.begin(), l0.end(), l1.begin(), l1.end(), res.begin());
+        res.resize(it - res.begin());
+        for(auto rit = res.begin(); rit != res.end(); ++rit) {
+            Triple to_insert(e.l, e.r, *rit);
+            triples.insert(to_insert);
+        }
+    }
+    return triples;
+}

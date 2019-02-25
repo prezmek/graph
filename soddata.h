@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <set>
+#include <algorithm>
 
 class SodData
 {
@@ -33,8 +34,38 @@ public:
         std::set<int> neighs;
     };
 
+    struct Triple {
+        int v1;
+        int v2;
+        int v3;
+
+        Triple(int w1, int w2, int w3) {
+            std::vector<int> v;
+            v.push_back(w1);
+            v.push_back(w2);
+            v.push_back(w3);
+            std::sort(v.begin(), v.end());
+            v1 = v[0];
+            v2 = v[1];
+            v3 = v[2];
+        }
+
+        bool operator<(const Triple& c2) const {
+            if(v1 < c2.v1)
+                return true;
+            if(v1 > c2.v1)
+                return false;
+            if(v2 < c2.v2)
+                return true;
+            if(v2 > c2.v2)
+                return false;
+            return v3 < c2.v3;
+        }
+    };
+
     std::vector<Node>& GetNodes() { return nodes; }
     std::vector<Edge>& GetEdges() { return edges; }
+    std::set<Triple> CalculateTriples();
 
     bool has_coordinates {false};
 private:
