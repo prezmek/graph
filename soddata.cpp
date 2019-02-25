@@ -49,6 +49,13 @@ void SodData::ReadFile(char* filename)
 
     file.close();
 
+    // fill neighs structure
+    for(auto& e : edges) {
+        nodes[e.l].neighs.insert(e.r);
+        nodes[e.r].neighs.insert(e.l);
+    }
+
     std::cout << "No of nodes: " << nodes.size() << std::endl;
     std::cout << "No of edges: " << edges.size() << std::endl;
+
 }

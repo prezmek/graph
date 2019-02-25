@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <set>
 
 class SodData
 {
@@ -29,6 +30,7 @@ public:
         std::string value;
         int x {0};
         int y {0};
+        std::set<int> neighs;
     };
 
     std::vector<Node>& GetNodes() { return nodes; }
