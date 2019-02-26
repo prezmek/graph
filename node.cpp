@@ -78,6 +78,9 @@ void Node::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     if(selected) {
         gradient.setColorAt(0, Qt::blue);
         gradient.setColorAt(1, Qt::darkBlue);
+    } else if(is_clique) {
+        gradient.setColorAt(0, Qt::red);
+        gradient.setColorAt(1, Qt::darkRed);
     } else {
         gradient.setColorAt(0, Qt::green);
         gradient.setColorAt(1, Qt::darkGreen);

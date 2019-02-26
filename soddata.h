@@ -6,8 +6,6 @@
 #include <set>
 #include <algorithm>
 
-// add comment
-
 class SodData
 {
 public:
@@ -67,12 +65,16 @@ public:
 
     std::vector<Node>& GetNodes() { return nodes; }
     std::vector<Edge>& GetEdges() { return edges; }
+    std::vector<Triple>& GetCliques() { return cliques; }
+
     std::vector<Triple> CalculateTriples();
 
     bool has_coordinates {false};
+
 private:
     std::vector<Edge> edges;
     std::vector<Node> nodes;
+    std::vector<Triple> cliques;
 
     int AddNode(std::string category, std::string value, double x = 0, double y = 0);
 };

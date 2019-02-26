@@ -79,7 +79,7 @@ void SodData::ReadFile(char* filename)
         nodes[e.r].neighs.insert(e.l);
     }
 
-    std::vector<SodData::Triple> cliques = CalculateTriples();
+    cliques = CalculateTriples();
     if(cliques.size())
         std::cout << "No of cliques: " << cliques.size() << "\tFirst: " << cliques[0].v1 << ", " << cliques[0].v2 << ", " << cliques[0].v3 << std::endl;
 

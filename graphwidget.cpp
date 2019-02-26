@@ -168,10 +168,6 @@ GraphWidget::GraphWidget(char* filename, Params* params, QLabel* infoLabel, SodD
     , infoLabel(infoLabel)
     , soddata(soddata)
 {
-    // Read data from file
-
-    soddata->ReadFile(filename);
-
     // create scene:
 
     QGraphicsScene *scene = new QGraphicsScene(this);

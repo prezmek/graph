@@ -47,6 +47,7 @@ public:
     std::string value;
     bool selected {false};
     bool deleted {false};
+    bool is_clique {false};
 
 private:
     TLayout layout;

@@ -26,7 +26,7 @@ public slots:
     void onlyselectedNodes();
     void layoutComboChanged(int i);
     void deleteSelected();
-    void setNoOfCliques(int value);
+    void setCliqueNo(int value);
 
 private slots:
     void open();

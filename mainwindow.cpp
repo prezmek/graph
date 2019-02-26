@@ -125,17 +125,17 @@ QWidget* MainWindow::CreateControlsCliques()
     // Items
 
     QSpinBox* SpinBox = new QSpinBox;
-    SpinBox->setRange(0, 5);
+    SpinBox->setRange(0, soddata.GetCliques().size() - 1);
     SpinBox->setSingleStep(1);
-    SpinBox->setValue(0);
+    SpinBox->setValue(1);
 
     QSlider* slider = new QSlider(Qt::Orientation::Horizontal);
     slider->setFocusPolicy(Qt::StrongFocus);
     slider->setTickPosition(QSlider::TicksBothSides);
-    slider->setRange(0, 5);
+    slider->setRange(0, soddata.GetCliques().size() - 1);
     slider->setSingleStep(1);
     slider->setTickInterval(1);
-    slider->setValue(0);
+    slider->setValue(1);
 
     QPushButton* but_show = new QPushButton("Show Cliques");
 
@@ -144,7 +144,7 @@ QWidget* MainWindow::CreateControlsCliques()
     connect(slider, SIGNAL(valueChanged(int)), SpinBox, SLOT(setValue(int)));
     connect(SpinBox, SIGNAL(valueChanged(int)), slider, SLOT(setValue(int)));
 
-    connect(slider, SIGNAL(valueChanged(int)), this, SLOT(setNoOfCliques(int)));
+    connect(slider, SIGNAL(valueChanged(int)), this, SLOT(setCliqueNo(int)));
 
     // Layout
 
@@ -175,6 +175,10 @@ QWidget* MainWindow::CreateControlsWidget()
 
 MainWindow::MainWindow(char* filename)
 {
+    // Read data from file
+
+    soddata.ReadFile(filename);
+
     // Create main widget
 
     QWidget* widget = new QWidget;
@@ -301,9 +305,17 @@ void MainWindow::deleteSelected()
     RefreshGraphWidget();
 }
 
-void MainWindow::setNoOfCliques(int value)
+void MainWindow::setCliqueNo(int value)
 {
-    std::cout << "clique: " << value << std::endl;
+    auto& cl = soddata.GetCliques()[value];
+    for(int i = 0; i < soddata.GetNodes().size(); i++) {
+        Node* n = (Node*)(graph_widget->items()[i]);
+        if(i == cl.v1 || i == cl.v2 || i == cl.v3)
+            n->is_clique = true;
+        else
+            n->is_clique = false;
+    }
+    RefreshGraphWidget();
 }
 
 void MainWindow::open()
