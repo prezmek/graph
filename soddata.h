@@ -65,7 +65,7 @@ public:
 
     std::vector<Node>& GetNodes() { return nodes; }
     std::vector<Edge>& GetEdges() { return edges; }
-    std::set<Triple> CalculateTriples();
+    std::vector<Triple> CalculateTriples();
 
     bool has_coordinates {false};
 private:

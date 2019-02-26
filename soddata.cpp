@@ -18,7 +18,7 @@ int SodData::AddNode(std::string category, std::string value, double x, double y
 }
 
 
-std::set<SodData::Triple> SodData::CalculateTriples()
+std::vector<SodData::Triple> SodData::CalculateTriples()
 {
     std::set<Triple> triples;
     for(auto& e : edges) {
@@ -34,7 +34,11 @@ std::set<SodData::Triple> SodData::CalculateTriples()
             triples.insert(to_insert);
         }
     }
-    return triples;
+    std::vector<Triple> cliques;
+    cliques.reserve(triples.size());
+    for(auto tr : triples)
+        cliques.push_back(tr);
+    return cliques;
 }
 
 void SodData::ReadFile(char* filename)
@@ -75,8 +79,9 @@ void SodData::ReadFile(char* filename)
         nodes[e.r].neighs.insert(e.l);
     }
 
-    std::set<SodData::Triple> cliques = CalculateTriples();
-    std::cout << cliques.begin()->v1 << ", " << cliques.begin()->v2 << ", " << cliques.begin()->v3 << std::endl;
+    std::vector<SodData::Triple> cliques = CalculateTriples();
+    if(cliques.size())
+        std::cout << "No of cliques: " << cliques.size() << "\tFirst: " << cliques[0].v1 << ", " << cliques[0].v2 << ", " << cliques[0].v3 << std::endl;
 
     std::cout << "No of nodes: " << nodes.size() << std::endl;
     std::cout << "No of edges: " << edges.size() << std::endl;
