@@ -118,6 +118,45 @@ QWidget* MainWindow::CreateControlsNodes()
     return controlsGroup;
 }
 
+QWidget* MainWindow::CreateControlsCliques()
+{
+    QGroupBox* controlsGroup = new QGroupBox("Cliques");
+
+    // Items
+
+    QSpinBox* SpinBox = new QSpinBox;
+    SpinBox->setRange(0, 5);
+    SpinBox->setSingleStep(1);
+    SpinBox->setValue(0);
+
+    QSlider* slider = new QSlider(Qt::Orientation::Horizontal);
+    slider->setFocusPolicy(Qt::StrongFocus);
+    slider->setTickPosition(QSlider::TicksBothSides);
+    slider->setRange(0, 5);
+    slider->setSingleStep(1);
+    slider->setTickInterval(1);
+    slider->setValue(0);
+
+    QPushButton* but_show = new QPushButton("Show Cliques");
+
+    // Connect Items
+
+    connect(slider, SIGNAL(valueChanged(int)), SpinBox, SLOT(setValue(int)));
+    connect(SpinBox, SIGNAL(valueChanged(int)), slider, SLOT(setValue(int)));
+
+    connect(slider, SIGNAL(valueChanged(int)), this, SLOT(setNoOfCliques(int)));
+
+    // Layout
+
+    QGridLayout* controlsLayout = new QGridLayout;
+    controlsLayout->addWidget(SpinBox, 0, 0);
+    controlsLayout->addWidget(slider, 0, 1);
+    controlsLayout->addWidget(but_show, 1, 0);
+
+    controlsGroup->setLayout(controlsLayout);
+
+    return controlsGroup;
+}
 
 QWidget* MainWindow::CreateControlsWidget()
 {
@@ -129,6 +168,7 @@ QWidget* MainWindow::CreateControlsWidget()
     layout->addWidget(CreateControlsLayout());
     layout->addWidget(CreateControlsEdges());
     layout->addWidget(CreateControlsNodes());
+    layout->addWidget(CreateControlsCliques());
 
     return widget;
 }
@@ -259,6 +299,11 @@ void MainWindow::deleteSelected()
             n->deleted = true;
     }
     RefreshGraphWidget();
+}
+
+void MainWindow::setNoOfCliques(int value)
+{
+    std::cout << "clique: " << value << std::endl;
 }
 
 void MainWindow::open()

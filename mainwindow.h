@@ -26,6 +26,7 @@ public slots:
     void onlyselectedNodes();
     void layoutComboChanged(int i);
     void deleteSelected();
+    void setNoOfCliques(int value);
 
 private slots:
     void open();
@@ -45,6 +46,7 @@ private:
     QWidget* CreateControlsLayout();
     QWidget* CreateControlsEdges();
     QWidget* CreateControlsNodes();
+    QWidget* CreateControlsCliques();
     QWidget* CreateControlsWidget();
 
     QMenu *fileMenu;
